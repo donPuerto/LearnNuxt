@@ -47,4 +47,15 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
+  icon: {
+    customCollections: [{
+      prefix: 'custom',
+      dir: './assets/icons',
+      normalizeIconName: false
+    }],
+    serverBundle: {
+      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons'],
+    },
+  },
+ 
 })
