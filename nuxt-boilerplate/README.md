@@ -1,6 +1,23 @@
 # Nuxt Boilerplate
 
-A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS.
+A production-ready starter template built with Nuxt 4, featuring a modern tech stack and best practices. This boilerplate combines the power of Nuxt UI 3 for beautiful, accessible components, TailwindCSS 4 for utility-first styling, and TypeScript for enhanced development experience.
+
+Designed to help you kickstart your next project with:
+- Zero configuration required
+- Beautiful UI components out of the box
+- Dark mode support with smooth transitions
+- Fully responsive design patterns
+- Performance optimized
+- SEO-friendly structure
+- Modern development tools
+- Custom icon system with Iconify integration
+
+Perfect for building:
+- Web Applications
+- Landing Pages
+- Admin Dashboards
+- Documentation Sites
+- Progressive Web Apps (PWA)
 
 ## Features
 
