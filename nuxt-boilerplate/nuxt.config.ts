@@ -2,14 +2,14 @@
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/devtools', '@nuxt/ui', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
+  modules: ['@nuxt/ui', '@nuxt/devtools',  '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   future: {
     compatibilityVersion: 4,
   },
   // To re-enable _all_ Nuxt v3 behavior, set the following options:
-  //  srcDir: ".",
+  // srcDir: ".",
   //  dir: {
   //   app: "app",
   // },
@@ -50,8 +50,7 @@ export default defineNuxtConfig({
   icon: {
     customCollections: [{
       prefix: 'custom',
-      dir: './assets/icons',
-      normalizeIconName: false
+      dir: './assets/icons'      
     }],
     serverBundle: {
       collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons'],
