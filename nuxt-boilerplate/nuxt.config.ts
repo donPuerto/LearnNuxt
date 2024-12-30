@@ -1,7 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import tailwindcss from "@tailwindcss/vite";
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({
+  modules: ['@nuxt/devtools', '@nuxt/ui', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
+  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
   future: {
     compatibilityVersion: 4,
   },
@@ -24,7 +27,7 @@ export default defineNuxtConfig({
   //       deep: true
   //     }
   //   }
-  // }, 
+  // },
   // features: {
   //   inlineStyles: true
   // },
@@ -34,17 +37,14 @@ export default defineNuxtConfig({
   //   }
   // }
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
-  css: ['~/assets/css/main.css'],
-  modules: ['@nuxt/devtools','@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
-  eslint: {
-    config: {
-      stylistic: true
-    }
-  },
   vite: {
     plugins: [
-      tailwindcss()
-    ]
-  }
+      tailwindcss(),
+    ],
+  },
+  eslint: {
+    config: {
+      stylistic: true,
+    },
+  },
 })

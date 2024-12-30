@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <NuxtPage />
-  </div>
+  <UApp :toaster="appConfig.toaster">
+    <NuxtLoadingIndicator color="#FFF" />
+
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+  </UApp>
 </template>
+
+<script setup>
+const appConfig = useAppConfig()
+</script>
 
 <style scoped>
 div {
