@@ -1,75 +1,100 @@
-# Nuxt Minimal Starter
+# Nuxt Boilerplate
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS.
 
-## Setup
+## Features
 
-Make sure to install dependencies:
+- [Nuxt 4](https://nuxt.com) - The Intuitive Vue Framework
+- [Nuxt UI 3](https://ui.nuxt.com) - Beautiful and accessible components
+- [TailwindCSS 4](https://tailwindcss.com) - A utility-first CSS framework
+- [TypeScript](https://www.typescriptlang.org/) - Type safety and better DX
+- [ESLint](https://eslint.org/) - Code linting
+- Dark Mode Support
+- Fully Responsive Design
+- Custom Icon System
 
+## Prerequisites
+
+- Node.js (v18.0.0 or newer)
+- pnpm (v8.0.0 or newer)
+
+## Quick Start
+
+1. Clone the repository:
 ```bash
-# npm
-npm install
+git clone [your-repo-url]
+cd nuxt-boilerplate
+```
 
-# pnpm
+2. Install dependencies:
+```bash
 pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
 ```
 
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
+3. Run the development server:
 ```bash
-# npm
-npm run dev
-
-# pnpm
 pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
+Visit `http://localhost:3000` to see your application.
 
-Build the application for production:
+## Project Structure
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+```
+nuxt-boilerplate/
+├── app/                    # Application source code
+│   ├── assets/            # Static assets (CSS, images)
+│   │   ├── css/          # Global CSS
+│   │   └── icons/        # Custom SVG icons
+│   ├── components/        # Vue components
+│   │   └── core/         # Core UI components
+│   ├── layouts/          # Page layouts
+│   └── pages/            # Application pages
+├── public/               # Public static files
+└── nuxt.config.ts       # Nuxt configuration
 ```
 
-Locally preview production build:
+## Custom Icons
 
-```bash
-# npm
-npm run preview
+This boilerplate includes a custom icon system. To use custom icons:
 
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+1. Place your SVG icons in `app/assets/icons/`
+2. Use them in components:
+```vue
+<UIcon name="i-custom-[icon-name]" />
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Available Scripts
+
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm preview` - Preview production build
+- `pnpm lint` - Lint code
+- `pnpm lint:fix` - Fix lint issues
+
+## Environment Variables
+
+Create a `.env` file in the root directory:
+
+```env
+# Add your environment variables here
+```
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Acknowledgments
+
+- [Nuxt](https://nuxt.com)
+- [Nuxt UI](https://ui.nuxt.com)
+- [TailwindCSS](https://tailwindcss.com)
+- [Vue.js](https://vuejs.org)
