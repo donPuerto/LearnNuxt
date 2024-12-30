@@ -7,7 +7,7 @@
           <NuxtLink to="/" class="flex items-center gap-x-3">
             <UIcon 
               name="i-custom-logo" 
-              class="h-8 w-auto text-primary-500 dark:text-primary-400"
+              class="size-10 w-auto text-primary-500 dark:text-primary-400"
             />
             <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
               Nuxt Boilerplate
@@ -35,9 +35,10 @@
             class="text-gray-700 hover:text-primary-500 transition-colors duration-200 dark:text-gray-300 dark:hover:text-primary-400"
             :aria-label="icon.name"
           >
+          
             <UIcon 
               :name="icon.class" 
-              class="size-8"
+              class="size-10"
             />
           </button>
         </div>

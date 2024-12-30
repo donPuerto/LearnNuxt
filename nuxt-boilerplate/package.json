@@ -1,5 +1,6 @@
 {
   "name": "nuxt-app",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -32,6 +33,7 @@
     "@iconify-json/simple-icons": "^1.2.17",
     "@iconify-json/skill-icons": "^1.2.0",
     "@iconify-json/uil": "^1.2.3",
+    "@nuxt/kit": "npm:@nuxt/kit-nightly@latest",
     "@tailwindcss/vite": "4.0.0-beta.8",
     "tailwindcss": "4.0.0-beta.8",
     "typescript": "^5.7.2"

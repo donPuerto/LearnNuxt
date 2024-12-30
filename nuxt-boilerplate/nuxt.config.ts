@@ -1,9 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
+import pkg from './package.json'
+import { createResolver } from '@nuxt/kit'
+const { resolve } = createResolver(import.meta.url)
+
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@nuxt/devtools',  '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
   devtools: { enabled: true },
+  runtimeConfig: {
+    public: {
+      version: pkg.version
+    }
+  },
+  modules: ['@nuxt/ui', '@nuxt/devtools',  '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
   css: ['~/assets/css/main.css'],
   future: {
     compatibilityVersion: 4,
@@ -50,8 +59,13 @@ export default defineNuxtConfig({
   icon: {
     customCollections: [{
       prefix: 'custom',
-      dir: './assets/icons'      
+      dir: resolve('./app/assets/icons')    
     }],
+    clientBundle: {
+      scan: true,
+      includeCustomCollections: true
+    },
+    provider: 'iconify',
     serverBundle: {
       collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons'],
     },
