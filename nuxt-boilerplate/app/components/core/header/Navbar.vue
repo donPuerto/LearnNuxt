@@ -41,6 +41,20 @@
               class="size-10"
             />
           </button>
+
+          <UTooltip text="Search" :kbds="['meta', 'K']">
+            <UiCommandPallete />
+          </UTooltip>
+          <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
+            <UButton
+              color="neutral"
+              variant="ghost"
+              to="https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate"
+              target="_blank"
+              icon="i-simple-icons-github"
+              aria-label="GitHub"
+            />
+          </UTooltip>
         </div>
       </div>
     </div>
@@ -48,11 +62,19 @@
 </template>
 
 <script setup lang="ts">
+
+
 const navigation = [
   { name: 'Components', href: '/components' },
   { name: 'RoadMap', href: '/roadmap' },
   { name: 'Releases', href: '/releases' },
 ];
+
+defineShortcuts({
+  meta_g: () => {
+    window.open('https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate', '_blank')
+  }
+})
 
 const icons = [
   { 

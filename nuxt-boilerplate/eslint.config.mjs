@@ -1,15 +1,20 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
 import tailwindcss from 'eslint-plugin-tailwindcss'
+import stylistic from '@stylistic/eslint-plugin'
 
 export default withNuxt({
-  files: ['**/*.ts', '**/*.tsx', '**/*.vue', '**/*.js'],
+  files: ['**/*.ts', '**/*.tsx', '**/*.vue', '**/*.js', '**/*.css'],
   plugins: {
-   tailwindcss,
+    tailwindcss,
+    '@stylistic': stylistic,
   },
   rules: {
     // General code style rules
     ...tailwindcss.configs.recommended.rules,
     'tailwindcss/no-custom-classname': 'off',
+    '@stylistic/unknownAtRules': ['error', {
+      ignoreAtRules: ['theme', 'tailwind', 'apply', 'variants', 'responsive', 'screen', 'layer']
+    }],
     //  'vue/no-parsing-error': 'off',
     // Disable the no-custom-classname rule
 
