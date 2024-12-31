@@ -29,22 +29,12 @@
 
         <!-- Right side: Icons -->
         <div class="flex items-center space-x-6">
-          <button 
-            v-for="icon in icons" 
-            :key="icon.name"
-            class="text-gray-700 hover:text-primary-500 transition-colors duration-200 dark:text-gray-300 dark:hover:text-primary-400"
-            :aria-label="icon.name"
-          >
-          
-            <UIcon 
-              :name="icon.class" 
-              class="size-10"
-            />
-          </button>
+          <UiThemePicker />
 
           <UTooltip text="Search" :kbds="['meta', 'K']">
             <UiCommandPallete />
           </UTooltip>
+
           <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
             <UButton
               color="neutral"
@@ -53,6 +43,7 @@
               target="_blank"
               icon="i-simple-icons-github"
               aria-label="GitHub"
+              :style="{ color: `var(--ui-primary)` }"
             />
           </UTooltip>
         </div>

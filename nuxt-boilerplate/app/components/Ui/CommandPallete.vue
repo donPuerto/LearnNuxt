@@ -4,6 +4,7 @@
       color="neutral"
       variant="ghost"
       icon="i-lucide-search"
+      :style="{ color: `var(--ui-primary)` }"
     />
 
     <template #content>
