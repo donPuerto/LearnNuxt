@@ -21,12 +21,13 @@
         </div>
 
         <!-- Right side: Icons -->
-        <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-2">
           <UiThemePicker />
           <UiCommandPallete />
           <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
             <UButton
               color="primary"
+              size="xl"
               variant="ghost"
               to="https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate"
               target="_blank"

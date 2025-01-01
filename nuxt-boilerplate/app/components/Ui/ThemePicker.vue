@@ -3,6 +3,7 @@
     <UPopover :ui="{ content: 'w-72 px-6 py-4 flex flex-col gap-4' }" >
         <template #default="{ open }">
             <UButton
+                size="xl"
                 icon="i-lucide-swatch-book"
                 color="neutral"
                 :variant="open ? 'soft' : 'ghost'"
@@ -12,55 +13,54 @@
             />
         </template>
         <template #content>
-                <fieldset>
-                    <legend class="text-[11px] leading-none font-semibold mb-2">
-                        Primary
-                    </legend>
-                    <div class="grid grid-cols-3 gap-1 -mx-2">
-                        <UiThemePickerButton
-                            v-for="color in primaryColors"
-                            :key="color"
-                            :label="color"
-                            :chip="color"
-                            :selected="primary === color"
-                            @click="primary = color"
-                        />
-                    </div>
+          <fieldset>
+              <legend class="text-[11px] leading-none font-semibold mb-2">
+                  Primary
+              </legend>
+              <div class="grid grid-cols-3 gap-1 -mx-2">
+                  <UiThemePickerButton
+                      v-for="color in primaryColors"
+                      :key="color"
+                      :label="color"
+                      :chip="color"
+                      :selected="primary === color"
+                      @click="primary = color"
+                  />
+              </div>
 
-                </fieldset>
+          </fieldset>
 
-                <fieldset>
-
-                <legend class="text-[11px] leading-none font-semibold mb-2">
-                    Neutral
-                </legend>
-
-                <div class="grid grid-cols-3 gap-1 -mx-2">
-                <UiThemePickerButton
-                    v-for="color in neutralColors"
-                    :key="color"
-                    :label="color"
-                    :chip="color"
-                    :selected="neutral === color"
-                    @click="neutral = color"
-                />
-                </div>
-            </fieldset>
-
-            <fieldset>
+          <fieldset>
             <legend class="text-[11px] leading-none font-semibold mb-2">
-            Radius
+                Neutral
+            </legend>
+
+          <div class="grid grid-cols-3 gap-1 -mx-2">
+            <UiThemePickerButton
+                v-for="color in neutralColors"
+                :key="color"
+                :label="color"
+                :chip="color"
+                :selected="neutral === color"
+                @click="neutral = color"
+            />
+          </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-[11px] leading-none font-semibold mb-2">
+              Radius
             </legend>
 
             <div class="grid grid-cols-5 gap-1 -mx-2">
-            <UiThemePickerButton
-                v-for="r in radiuses"
-                :key="r"
-                :label="String(r)"
-                class="justify-center px-0"
-                :selected="radius === r"
-                @click="radius = r"
-            />
+              <UiThemePickerButton
+                  v-for="r in radiuses"
+                  :key="r"
+                  :label="String(r)"
+                  class="justify-center px-0"
+                  :selected="radius === r"
+                  @click="radius = r"
+              />
             </div>
         </fieldset>
 

@@ -2,6 +2,7 @@
   <UModal>
 
       <UButton
+          size="xl"
           color="neutral"
           variant="ghost"
           icon="i-lucide-search"
