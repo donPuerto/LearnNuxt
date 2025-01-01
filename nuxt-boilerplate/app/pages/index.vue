@@ -10,17 +10,11 @@
     <!-- Hero Section -->
     <div class="relative">
       <div class="px-4 sm:px-6 lg:px-8">
-        <div class="relative mx-auto max-w-[90rem] py-16 sm:py-20 lg:py-24">
-          <div class="relative mx-auto max-w-5xl pt-10 text-center">
+        <div class="relative mx-auto max-w-[90rem] py-4 sm:py-8 lg:py-12">
+          <div class="relative mx-auto max-w-5xl text-center">
             <!-- Hero Content -->
             <div class="relative z-20">
               <div class="relative">
-                <div class="absolute -top-8 sm:-top-10 md:-top-12 left-1/2 -translate-x-1/2 transform">
-                  <div class="flex items-center space-x-2 rounded-full bg-primary-500/10 px-4 py-1.5 text-sm font-medium text-primary-600 ring-1 ring-inset ring-primary-500/20 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/20">
-                    <UIcon name="i-lucide-sparkles" class="size-4" />
-                    <span>New Features</span>
-                  </div>
-                </div>
                 <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-7xl lg:text-8xl">
                   <span class="relative mt-4 block bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
                     Nuxt Boilerplate
@@ -60,17 +54,30 @@
                 </div>
 
                 <!-- Tech Logos -->
-                <div class="mt-16">
+                <div class="mt-12">
                   <p class="text-center text-lg font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">
                     Powered by modern technologies
                   </p>
                   <div class="mt-8 flex flex-wrap items-center justify-center gap-6">
                     <div v-for="tech in technologies" :key="tech.name" class="group flex flex-col items-center">
-                      <div class="flex size-20 transform items-center justify-center rounded-2xl bg-white/5 p-4 shadow-lg ring-1 ring-gray-900/10 transition duration-300 ease-out group-hover:scale-110 group-hover:bg-white/10 group-hover:shadow-xl group-hover:shadow-gray-900/20 dark:bg-white/5 dark:ring-white/10 dark:group-hover:bg-white/10">
-                        <UIcon :name="tech.icon" class="size-12 transform transition duration-300 ease-out group-hover:rotate-3" :class="tech.iconClass" />
+                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-2xl bg-white/5 p-5 sm:p-6 shadow-lg ring-1 ring-gray-900/10 transition duration-300 ease-out group-hover:scale-110 group-hover:bg-white/10 group-hover:shadow-xl group-hover:shadow-gray-900/20 dark:bg-white/5 dark:ring-white/10 dark:group-hover:bg-white/10">
+                        <UIcon 
+                          :name="tech.icon" 
+                          class="size-14 sm:size-16 transform transition duration-300 ease-out group-hover:rotate-3"
+                          :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                        />
                       </div>
-                      <span class="mt-3 text-base font-medium" :class="tech.textClass">{{ tech.name }}</span>
-                      <span v-if="tech.version" class="mt-1 text-sm px-3 py-1 rounded-full transform transition duration-300 ease-out group-hover:scale-105" :class="tech.versionClass">
+                      <span 
+                        class="mt-3 text-base font-medium"
+                        :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                      >
+                        {{ tech.name }}
+                      </span>
+                      <span 
+                        v-if="tech.version" 
+                        class="mt-0.5 text-xs px-2 py-0.5 rounded-full transform transition duration-300 ease-out group-hover:scale-105"
+                        :class="`bg-${tech.color}-50 text-${tech.color}-700 dark:bg-${tech.color}-400/10 dark:text-${tech.color}-400`"
+                      >
                         v{{ tech.version }}
                       </span>
                     </div>
@@ -82,8 +89,8 @@
         </div>
 
         <!-- Tech Stack -->
-        <div class="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="relative isolate overflow-hidden bg-white/50 px-6 py-16 shadow-2xl dark:bg-white/5 sm:rounded-3xl sm:px-16 xl:py-24">
+        <div class="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="relative isolate overflow-hidden bg-white/50 px-6 py-12 shadow-2xl dark:bg-white/5 sm:rounded-3xl sm:px-16 xl:py-16">
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div class="lg:pr-8 lg:pt-4">
                 <div class="lg:max-w-lg">
@@ -125,7 +132,7 @@
         </div>
 
         <!-- Stats -->
-        <div class="mx-auto mt-24 max-w-7xl px-4 pb-24 sm:mt-32 sm:px-6 sm:pb-32 lg:mt-40 lg:px-8 lg:pb-40">
+        <div class="mx-auto mt-8 max-w-7xl px-4 pb-16 sm:mt-12 sm:px-6 sm:pb-24 lg:mt-16 lg:px-8 lg:pb-32">
           <div class="mx-auto max-w-2xl lg:mx-0">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               Built for Performance
@@ -134,7 +141,7 @@
               Our boilerplate is optimized for speed, developer experience, and production readiness.
             </p>
           </div>
-          <dl class="mx-auto mt-12 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-16 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+          <dl class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-12 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
             <div v-for="stat in stats" :key="stat.name" class="group relative flex flex-col gap-y-2 overflow-hidden rounded-2xl bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
               <dt class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-300">
                 {{ stat.name }}
@@ -166,41 +173,31 @@ const technologies = [
     name: 'Vue', 
     icon: 'i-logos-vue', 
     version: config.dependencies.vue,
-    iconClass: 'text-emerald-600 dark:text-emerald-400',
-    textClass: 'text-emerald-600 dark:text-emerald-400',
-    versionClass: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-400/10 dark:text-emerald-400'
+    color: 'emerald'
   },
   { 
     name: 'Nuxt', 
     icon: 'i-logos-nuxt-icon', 
     version: config.dependencies.nuxt,
-    iconClass: 'text-primary-600 dark:text-primary-400',
-    textClass: 'text-primary-600 dark:text-primary-400',
-    versionClass: 'bg-primary-50 text-primary-700 dark:bg-primary-400/10 dark:text-primary-400'
+    color: 'primary'
   },
   { 
     name: 'TypeScript', 
     icon: 'i-logos-typescript-icon', 
     version: config.devDependencies.typescript,
-    iconClass: 'text-blue-600 dark:text-blue-400',
-    textClass: 'text-blue-600 dark:text-blue-400',
-    versionClass: 'bg-blue-50 text-blue-700 dark:bg-blue-400/10 dark:text-blue-400'
+    color: 'blue'
   },
   { 
     name: 'Vite', 
     icon: 'i-logos-vitejs', 
     version: '5.0.0',
-    iconClass: 'text-yellow-600 dark:text-yellow-400',
-    textClass: 'text-yellow-600 dark:text-yellow-400',
-    versionClass: 'bg-yellow-50 text-yellow-700 dark:bg-yellow-400/10 dark:text-yellow-400'
+    color: 'yellow'
   },
   { 
     name: 'Tailwind', 
     icon: 'i-logos-tailwindcss-icon', 
     version: '4.0.0-beta.8',
-    iconClass: 'text-cyan-600 dark:text-cyan-400',
-    textClass: 'text-cyan-600 dark:text-cyan-400',
-    versionClass: 'bg-cyan-50 text-cyan-700 dark:bg-cyan-400/10 dark:text-cyan-400'
+    color: 'cyan'
   }
 ];
 
