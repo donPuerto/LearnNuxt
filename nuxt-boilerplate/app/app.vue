@@ -1,10 +1,11 @@
 <template>
   <UApp :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="#FFF" />
-
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+    <div class="bg-[var(--ui-bg)]" vaul-drawer-wrapper>
+      <NuxtLayout>
+        <NuxtPage />
+      </NuxtLayout>
+    </div>    
   </UApp>
 </template>
 

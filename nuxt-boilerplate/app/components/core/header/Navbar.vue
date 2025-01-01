@@ -9,7 +9,7 @@
               name="i-custom-logo"
               class="w-auto size-10 text-primary-500 dark:text-primary-400"
             />
-            <span class="text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+            <span class="hidden lg:block text-lg font-bold tracking-tight text-gray-900 dark:text-white">
               Nuxt <span class="text-[var(--ui-primary)]">Boilerplate</span>
             </span>
           </NuxtLink>
@@ -34,6 +34,17 @@
               aria-label="GitHub"
             />
           </UTooltip>
+          
+          <UDrawer v-model:open="isDrawerOpen" should-scale-background handle title="Pages" description="Navigation menu for mobile devices">
+            <UButton @click="toggleDrawer" :icon="isDrawerOpen ? 'i-lucide-x' : 'i-lucide-menu'" color="primary" variant="ghost" class="lg:hidden" aria-label="Toggle navigation menu" />
+
+            <template #body>
+              <div class="h-64">
+
+                <UNavigationMenu orientation="vertical" color="primary" variant="link" highlight :items="navigation" class="justify-center" />
+              </div>
+            </template>
+          </UDrawer>
         </div>
       </div>
     </div>
@@ -41,21 +52,28 @@
 </template>
 
 <script setup lang="ts">
-// defineShortcuts({
-//   meta_g: () => {
-//     window.open('https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate', '_blank')
-//   },
-//   meta_t: () => {
-//     // Define action for Theme Picker shortcut
-//     // Example: Toggle theme picker
-//     console.log('Theme Picker shortcut activated');
-//   },
-//   meta_k: () => {
-//     // Define action for CommandPallete shortcut
-//     // Example: Open command palette
-//     console.log('Command Palette shortcut activated');
-//   }
-// })
+import { ref } from 'vue';
+
+const isDrawerOpen = ref(false);
+
+const toggleDrawer = () => {
+  isDrawerOpen.value = !!isDrawerOpen.value;
+};
+
+defineShortcuts({
+  meta_g: () => {
+    window.open('https://github.com/donPuerto/LearnNuxt/tree/main/nuxt-boilerplate', '_blank')
+  },
+  o: () => isDrawerOpen.value = !isDrawerOpen.value,
+  meta_t: () => {
+    // Define action for Theme Picker shortcut
+    // Example: Toggle theme picker
+  },
+  meta_k: () => {
+    // Define action for CommandPallete shortcut
+    // Example: Open command palette
+  }
+})
 
 const navigation = [
     {
@@ -76,8 +94,4 @@ const navigation = [
      
     }
   ]
-
-
-
-
 </script>

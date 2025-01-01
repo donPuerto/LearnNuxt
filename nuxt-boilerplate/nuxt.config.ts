@@ -6,6 +6,12 @@ const { resolve } = createResolver(import.meta.url)
 
 
 export default defineNuxtConfig({
+  app: {
+    rootAttrs: {
+      'vaul-drawer-wrapper': '',
+      'class': 'bg-[var(--ui-bg)]'
+    }
+  },
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
