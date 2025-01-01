@@ -15,8 +15,8 @@
             <!-- Hero Content -->
             <div class="relative z-20">
               <div class="relative">
-                <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-7xl lg:text-8xl">
-                  <span class="relative mt-8 block bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 bg-clip-text text-transparent hover:animate-pulse transition-all duration-300">
+                <h1 class="text-5xl font-bold tracking-tight text-[var(--ui-color-primary-600)] dark:text-[var(--ui-color-primary-400)] sm:text-6xl md:text-7xl lg:text-8xl">
+                  <span class="relative mt-8 block">
                     Nuxt Boilerplate
                   </span>
                 </h1>
@@ -76,8 +76,7 @@
                       </span>
                       <span 
                         v-if="tech.version" 
-                        class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75rem)] transform transition duration-300 ease-out group-hover:scale-105"
-                        :class="`bg-${tech.color}-50 text-${tech.color}-700 dark:bg-${tech.color}-400/10 dark:text-${tech.color}-400`"
+                        class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
                       >
                         v{{ tech.version }}
                       </span>
@@ -91,7 +90,9 @@
 
         <!-- Tech Stack -->
         <div class="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div class="relative isolate overflow-hidden bg-white/50 px-6 py-12 shadow-2xl dark:bg-white/5 sm:rounded-3xl sm:px-16 xl:py-16">
+          <div class="relative isolate overflow-hidden bg-[var(--ui-color-primary-50)] px-6 py-12 shadow-2xl dark:bg-[var(--ui-color-primary-950)] sm:rounded-[var(--ui-radius)] sm:px-16 xl:py-16">
+            <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.900),transparent)]" />
+            <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] shadow-xl shadow-primary-600/10 ring-1 ring-[var(--ui-color-primary-200)] dark:ring-[var(--ui-color-primary-800)] sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
             <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
               <div class="lg:pr-8 lg:pt-4">
                 <div class="lg:max-w-lg">
@@ -107,7 +108,7 @@
                 </div>
               </div>
               <dl class="col-span-2 grid grid-cols-1 gap-x-6 gap-y-8 text-base leading-7 text-gray-600 dark:text-gray-300 sm:grid-cols-2 lg:gap-y-12">
-                <div v-for="feature in features" :key="feature.name" class="group relative rounded-lg bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
+                <div v-for="feature in features" :key="feature.name" class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
                   <dt class="font-semibold text-gray-900 dark:text-white">
                     <div class="absolute -left-3 top-5 flex size-7 items-center justify-center rounded-xl bg-primary-100/50 dark:bg-primary-500/10">
                       <UIcon 
@@ -128,9 +129,6 @@
                 </div>
               </dl>
             </div>
-            <div class="pointer-events-none absolute left-12 top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-3xl lg:bottom-[-12rem] lg:top-auto lg:translate-y-0 lg:transform-gpu" aria-hidden="true">
-              <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary-600 to-purple-600 opacity-25"></div>
-            </div>
           </div>
         </div>
 
@@ -145,7 +143,7 @@
             </p>
           </div>
           <dl class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-12 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-            <div v-for="stat in stats" :key="stat.name" class="group relative flex flex-col gap-y-2 overflow-hidden rounded-lg bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
+            <div v-for="stat in stats" :key="stat.name" class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
               <dt class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-300">
                 {{ stat.name }}
               </dt>
