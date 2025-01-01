@@ -1,13 +1,18 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
 import tailwindcss from 'eslint-plugin-tailwindcss'
-import stylistic from '@stylistic/eslint-plugin'
+// import stylistic from '@stylistic/eslint-plugin'
 
 export default withNuxt({
   files: ['**/*.ts', '**/*.tsx', '**/*.vue', '**/*.js', '**/*.css'],
   plugins: {
     tailwindcss,
-    '@stylistic': stylistic,
+    // '@stylistic': stylistic,
   },
+  extends: [
+    'plugin:vue/vue3-recommended',
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+  ],
   rules: {
     // General code style rules
     ...tailwindcss.configs.recommended.rules,

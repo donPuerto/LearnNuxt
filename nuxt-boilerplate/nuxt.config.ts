@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4,
   },
+ 
   // To re-enable _all_ Nuxt v3 behavior, set the following options:
   // srcDir: ".",
   //  dir: {

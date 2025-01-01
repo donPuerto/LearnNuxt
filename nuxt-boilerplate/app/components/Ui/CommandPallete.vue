@@ -1,12 +1,14 @@
 <template>
   <UModal>
-    <UButton
-      color="neutral"
-      variant="ghost"
-      icon="i-lucide-search"
-      :style="{ color: `var(--ui-primary)` }"
-    />
 
+      <UButton
+          color="neutral"
+          variant="ghost"
+          icon="i-lucide-search"
+          :style="{ color: `var(--ui-primary)` }"
+      />
+    
+   
     <template #content>
       <UCommandPalette
         :groups="groups"

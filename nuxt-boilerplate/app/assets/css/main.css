@@ -17,7 +17,7 @@
     --color-primary-800: var(--ui-color-primary-800);
     --color-primary-900: var(--ui-color-primary-900);
     --color-primary-950: var(--ui-color-primary-950);
-  }
+}
 
 
 :root {
@@ -29,8 +29,8 @@
     --ui-warning: var(--ui-color-warning-500);
     --ui-error: var(--ui-color-error-500);
 
-    /* Neutral Palette */    
-     /* Least prominent text */
+    /* Neutral Palette */
+    /* Least prominent text */
     --ui-text-dimmed: var(--ui-color-neutral-400);
     /* Slightly muted text */
     --ui-text-muted: var(--ui-color-neutral-500);
@@ -59,7 +59,7 @@
     /* More prominent border */
     --ui-border-accented: var(--ui-color-neutral-300);
     /* Inverted border color */
-    --ui-border-inverted: var(--ui-color-neutral-900);    
+    --ui-border-inverted: var(--ui-color-neutral-900);
 }
 
 .dark {
@@ -71,7 +71,7 @@
     --ui-warning: var(--ui-color-warning-400);
     --ui-error: var(--ui-color-error-400);
 
-    /* Neutral Palette */    
+    /* Neutral Palette */
     /* Least prominent text */
     --ui-text-dimmed: var(--ui-color-neutral-500);
     /* Slightly muted text */
@@ -103,4 +103,3 @@
     /* Inverted border color */
     --ui-border-inverted: var(--color-white);
 }
-
