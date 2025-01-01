@@ -10,36 +10,35 @@
     <!-- Hero Section -->
     <div class="relative">
       <div class="px-4 sm:px-6 lg:px-8">
-        <div class="relative mx-auto max-w-[90rem] py-8 sm:py-12 lg:py-16">
-          <div class="relative mx-auto max-w-5xl mt-8 sm:mt-12 lg:mt-16 text-center">
+        <div class="relative mx-auto max-w-[90rem] py-16 sm:py-20 lg:py-24">
+          <div class="relative mx-auto max-w-5xl pt-10 text-center">
             <!-- Hero Content -->
             <div class="relative z-20">
               <div class="relative">
-                <div class="absolute -top-6 sm:-top-8 left-1/2 -translate-x-1/2 transform">
-                  <div class="flex items-center space-x-2 rounded-full bg-primary-500/10 px-3 py-1 text-xs sm:px-4 sm:py-1.5 sm:text-sm font-medium text-primary-600 ring-1 ring-inset ring-primary-500/20 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/20">
-                    <UIcon name="i-lucide-sparkles" class="size-3 sm:size-4" />
+                <div class="absolute -top-8 sm:-top-10 md:-top-12 left-1/2 -translate-x-1/2 transform">
+                  <div class="flex items-center space-x-2 rounded-full bg-primary-500/10 px-4 py-1.5 text-sm font-medium text-primary-600 ring-1 ring-inset ring-primary-500/20 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/20">
+                    <UIcon name="i-lucide-sparkles" class="size-4" />
                     <span>New Features</span>
                   </div>
                 </div>
-                <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 dark:text-white">
-                  <span class="relative mt-2 block bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-7xl lg:text-8xl">
+                  <span class="relative mt-4 block bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
                     Nuxt Boilerplate
                   </span>
                 </h1>
                 
-                <p class="mx-auto mt-4 max-w-2xl text-lg sm:text-xl leading-7 text-gray-600 dark:text-gray-300">
+                <p class="mx-auto mt-6 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
                   A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS. 
                   Start your next project with best practices and powerful features out of the box.
                 </p>
 
                 <!-- CTA Buttons -->
-                <div class="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+                <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <UButton
                     to="/components"
                     color="primary"
                     variant="solid"
-                    size="lg"
-                    sm:size="xl"
+                    size="xl"
                     class="w-full sm:w-auto"
                     trailing-icon="i-lucide-arrow-right"
                   >
@@ -50,9 +49,8 @@
                     href="https://github.com"
                     target="_blank"
                     color="primary"
-                    variant="outline"
-                    size="lg"
-                    sm:size="xl"
+                    variant="ghost"
+                    size="xl"
                     class="w-full sm:w-auto"
                     leading-icon="i-simple-icons-github"
                     trailing-icon="i-lucide-external-link"
@@ -62,17 +60,17 @@
                 </div>
 
                 <!-- Tech Logos -->
-                <div class="mt-8 sm:mt-10">
-                  <p class="text-center text-base sm:text-lg font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">
+                <div class="mt-16">
+                  <p class="text-center text-lg font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">
                     Powered by modern technologies
                   </p>
-                  <div class="mt-2 sm:mt-3 flex flex-wrap items-center justify-center gap-4">
+                  <div class="mt-8 flex flex-wrap items-center justify-center gap-6">
                     <div v-for="tech in technologies" :key="tech.name" class="group flex flex-col items-center">
-                      <div class="flex size-16 sm:size-18 transform items-center justify-center rounded-2xl bg-white/5 p-3 shadow-lg ring-1 ring-gray-900/10 transition duration-300 ease-out group-hover:scale-110 group-hover:bg-white/10 group-hover:shadow-xl group-hover:shadow-gray-900/20 dark:bg-white/5 dark:ring-white/10 dark:group-hover:bg-white/10">
-                        <UIcon :name="tech.icon" class="size-10 sm:size-11 transform transition duration-300 ease-out group-hover:rotate-3" :class="tech.iconClass" />
+                      <div class="flex size-20 transform items-center justify-center rounded-2xl bg-white/5 p-4 shadow-lg ring-1 ring-gray-900/10 transition duration-300 ease-out group-hover:scale-110 group-hover:bg-white/10 group-hover:shadow-xl group-hover:shadow-gray-900/20 dark:bg-white/5 dark:ring-white/10 dark:group-hover:bg-white/10">
+                        <UIcon :name="tech.icon" class="size-12 transform transition duration-300 ease-out group-hover:rotate-3" :class="tech.iconClass" />
                       </div>
-                      <span class="mt-2 text-sm sm:text-base font-medium" :class="tech.textClass">{{ tech.name }}</span>
-                      <span v-if="tech.version" class="mt-0.5 text-xs sm:text-sm px-2 py-0.5 rounded-full transform transition duration-300 ease-out group-hover:scale-105" :class="tech.versionClass">
+                      <span class="mt-3 text-base font-medium" :class="tech.textClass">{{ tech.name }}</span>
+                      <span v-if="tech.version" class="mt-1 text-sm px-3 py-1 rounded-full transform transition duration-300 ease-out group-hover:scale-105" :class="tech.versionClass">
                         v{{ tech.version }}
                       </span>
                     </div>
@@ -84,7 +82,50 @@
         </div>
 
         <!-- Tech Stack -->
-        <div class="mx-auto mt-16 max-w-7xl px-4 pb-24 sm:mt-32 sm:px-6 sm:pb-32 lg:mt-40 lg:px-8 lg:pb-40">
+        <div class="mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="relative isolate overflow-hidden bg-white/50 px-6 py-16 shadow-2xl dark:bg-white/5 sm:rounded-3xl sm:px-16 xl:py-24">
+            <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+              <div class="lg:pr-8 lg:pt-4">
+                <div class="lg:max-w-lg">
+                  <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400">
+                    Everything you need
+                  </h2>
+                  <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+                    Modern Tech Stack
+                  </p>
+                  <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                    Built with the latest technologies to ensure your project starts with a solid foundation.
+                  </p>
+                </div>
+              </div>
+              <dl class="col-span-2 grid grid-cols-1 gap-x-6 gap-y-8 text-base leading-7 text-gray-600 dark:text-gray-300 sm:grid-cols-2 lg:gap-y-12">
+                <div v-for="feature in features" :key="feature.name" class="group relative rounded-2xl bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
+                  <dt class="font-semibold text-gray-900 dark:text-white">
+                    <div class="absolute -left-3 top-5 flex size-7 items-center justify-center rounded-lg bg-primary-600/10 dark:bg-primary-400/10">
+                      <UIcon 
+                        :name="feature.icon" 
+                        class="size-4 text-primary-600 dark:text-primary-400"
+                      />
+                    </div>
+                    {{ feature.name }}
+                  </dt>
+                  <dd class="mt-2 text-sm">{{ feature.description }}</dd>
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    <span v-for="tag in feature.tags" :key="tag" class="inline-flex items-center rounded-md bg-primary-50 px-2 py-0.5 text-xs font-medium text-primary-700 ring-1 ring-inset ring-primary-600/10 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/20">
+                      {{ tag }}
+                    </span>
+                  </div>
+                </div>
+              </dl>
+            </div>
+            <div class="pointer-events-none absolute left-12 top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-3xl lg:bottom-[-12rem] lg:top-auto lg:translate-y-0 lg:transform-gpu" aria-hidden="true">
+              <div class="aspect-[1155/678] w-[72.1875rem] bg-gradient-to-tr from-primary-600 to-purple-600 opacity-25"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="mx-auto mt-24 max-w-7xl px-4 pb-24 sm:mt-32 sm:px-6 sm:pb-32 lg:mt-40 lg:px-8 lg:pb-40">
           <div class="mx-auto max-w-2xl lg:mx-0">
             <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
               Built for Performance
