@@ -15,11 +15,25 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
-      version: pkg.version
+      version: pkg.version,
+      dependencies: {
+        vue: pkg.dependencies.vue,
+        nuxt: pkg.dependencies.nuxt,
+        nuxtUI: pkg.dependencies['@nuxt/ui']
+      },
+      devDependencies: {
+        typescript: pkg.devDependencies.typescript,
+      }
     }
   },
-  modules: ['@nuxt/ui', '@nuxt/devtools',  '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxt/fonts'],
+  modules: ['@nuxt/ui', '@nuxt/devtools', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts'],
   css: ['~/assets/css/main.css'],
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+      autoprefixer: {}
+    }
+  },
   future: {
     compatibilityVersion: 4,
   },

@@ -41,8 +41,8 @@
     /* Most prominent text */
     --ui-text-highlighted: var(--ui-color-neutral-900);
 
-    /* Main background color */
-    --ui-bg: var(--color-white);
+    /* Background Colors */
+    --ui-bg: var(--ui-color-neutral-100);
     /* Subtle background */
     --ui-bg-muted: var(--ui-color-neutral-50);
     /* Slightly elevated background */
@@ -83,7 +83,7 @@
     /* Most prominent text */
     --ui-text-highlighted: var(--color-white);
 
-    /* Main background color */
+    /* Background Colors */
     --ui-bg: var(--ui-color-neutral-900);
     /* Subtle background */
     --ui-bg-muted: var(--ui-color-neutral-800);
