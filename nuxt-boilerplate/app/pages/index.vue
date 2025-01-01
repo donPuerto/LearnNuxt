@@ -15,8 +15,8 @@
       </div>
 
       <!-- Content -->
-      <div class="mx-auto max-w-2xl py-8 sm:py-12 lg:py-16">
-        <div class="relative mx-auto max-w-5xl text-center">
+      <div class="mx-auto max-w-4xl py-8 sm:py-12 lg:py-16">
+        <div class="relative mx-auto max-w-6xl text-center">
           <!-- Hero Content -->
           <div class="relative z-20">
             <div class="relative">
@@ -61,12 +61,20 @@
 
               <!-- Tech Logos -->
               <div class="mt-8">
-                <p class="text-center text-lg font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">
+                <h2 
+                  @click="handleStatClick"
+                  class="cursor-pointer text-base font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400"
+                >
                   Powered by modern technologies
-                </p>
+                </h2>
                 <div class="mt-6 flex flex-wrap items-center justify-center gap-6">
-                  <div v-for="tech in technologies" :key="tech.name" class="group flex flex-col items-center">
-                    <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+                  <div 
+                    v-for="tech in technologies" 
+                    :key="tech.name" 
+                    @click="handleStatClick"
+                    class="group flex cursor-pointer flex-col items-center"
+                  >
+                    <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
                       <UIcon 
                         :name="tech.icon" 
                         class="size-14 sm:size-16 transform transition duration-300 ease-out group-hover:rotate-3"
@@ -144,22 +152,26 @@
     </div>
 
     <!-- Stats -->
-    <div class="mx-auto mt-8 max-w-7xl px-4 pb-16 sm:mt-12 sm:px-6 sm:pb-24 lg:mt-16 lg:px-8 lg:pb-32">
+    <div class="mx-auto mt-16 max-w-7xl px-4 pb-16 sm:mt-20 sm:px-6 sm:pb-24 lg:mt-24 lg:px-8 lg:pb-32">
       <div class="mx-auto max-w-2xl lg:mx-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           Built for Performance
         </h2>
-        <p class="mt-4 text-base leading-7 text-gray-600 dark:text-gray-300">
+        <p class="mt-2 text-base leading-7 text-gray-600 dark:text-gray-300">
           Our boilerplate is optimized for speed, developer experience, and production readiness.
         </p>
       </div>
-      <dl class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-12 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-        <div v-for="stat in stats" :key="stat.name" class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+      <dl ref="statsRef" class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-6 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+        <div 
+          v-for="stat in stats" 
+          :key="stat.name" 
+          class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition-all duration-300 ease-out hover:bg-[var(--ui-color-primary-100)] hover:shadow-xl hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:hover:bg-[var(--ui-color-primary-900)]"
+        >
           <dt class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-300">
             {{ stat.name }}
           </dt>
           <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
-            {{ stat.value }}
+            {{ formatValue(stat.currentValue) }}
           </dd>
           <div class="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary-600 to-purple-600 opacity-0 transition-opacity duration-200 group-hover:opacity-100"></div>
         </div>
@@ -170,15 +182,24 @@
 
 <script setup lang="ts">
 import { useRuntimeConfig } from '#app'
-import { computed } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { useAppConfig } from '#imports'
+
+let jsConfetti: any = null
+
+onMounted(async () => {
+  if (process.client) {
+    const JSConfetti = (await import('js-confetti')).default
+    jsConfetti = new JSConfetti()
+  }
+})
 
 const appConfig = useAppConfig()
 const config = useRuntimeConfig().public
 
 const neutral = computed(() => appConfig.ui.colors.neutral)
 
-const technologies = [
+const technologies = ref([
   { 
     name: 'Vue', 
     icon: 'i-logos-vue', 
@@ -209,45 +230,112 @@ const technologies = [
     version: '4.0.0-beta.8',
     color: 'cyan'
   }
-];
+])
 
-const features = [
+const features = ref([
   {
     name: 'Modern Stack',
     icon: 'i-heroicons-outline-cube-transparent',
-    description:
-      'Built with the latest technologies including Nuxt 4, Vue 3, and TypeScript for a robust development experience.',
+    description: 'Built with the latest technologies including Nuxt 4, Vue 3, and TypeScript for a robust development experience.',
     tags: ['Nuxt 4', 'Vue 3', 'TypeScript']
   },
   {
     name: 'UI Components',
     icon: 'i-heroicons-outline-squares-2x2',
-    description:
-      'Powered by Nuxt UI, offering a comprehensive set of ready-to-use components that follow best practices.',
+    description: 'Powered by Nuxt UI, offering a comprehensive set of ready-to-use components that follow best practices.',
     tags: ['Nuxt UI', 'Components', 'TailwindCSS']
   },
   {
     name: 'Dark Mode',
     icon: 'i-heroicons-outline-moon',
-    description:
-      'First-class dark mode support with smooth transitions and system preference detection.',
+    description: 'First-class dark mode support with smooth transitions and system preference detection.',
     tags: ['Theme', 'Color Modes', 'Accessibility']
   },
   {
     name: 'Type Safe',
     icon: 'i-heroicons-outline-shield-check',
-    description:
-      'Full TypeScript support with auto-generated types and Vue macros for an enhanced development experience.',
+    description: 'Full TypeScript support with auto-generated types and Vue macros for an enhanced development experience.',
     tags: ['TypeScript', 'Type Safety', 'DX']
   }
+])
+
+const baseStats = [
+  { name: 'Lighthouse Score', value: '100/100', endValue: 100 },
+  { name: 'Bundle Size', value: '< 100kb', endValue: 100 },
+  { name: 'Build Time', value: '< 1s', endValue: 1 },
+  { name: 'Time to Interactive', value: '< 2s', endValue: 2 }
 ]
 
-const stats = [
-  { name: 'Lighthouse Score', value: '100/100' },
-  { name: 'Bundle Size', value: '< 100kb' },
-  { name: 'Build Time', value: '< 1s' },
-  { name: 'Time to Interactive', value: '< 2s' },
-]
+const stats = ref(baseStats.map(stat => ({
+  ...stat,
+  currentValue: stat.endValue // Ensure this is always set
+})))
 
+const statsRef = ref<HTMLElement | null>(null)
+const isIntersecting = ref(false)
 
+const handleStatClick = async () => {
+  if (!jsConfetti) return
+  
+  await jsConfetti.addConfetti({
+    emojis: ['⭐', '🚀', '💻', '🔥', '✨', '💡', '🎉'],
+    emojiSize: 20,
+    confettiNumber: 60,
+    confettiRadius: 6,
+    confettiSpeed: 0.8
+  })
+}
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries: IntersectionObserverEntry[]) => {
+      const entry = entries[0]
+      if (entry?.isIntersecting && !isIntersecting.value) {
+        isIntersecting.value = true
+        startCounterAnimation()
+      }
+    },
+    { threshold: 0.2 }
+  )
+
+  const element = statsRef.value
+  if (element) {
+    observer.observe(element)
+  }
+
+  return () => {
+    if (element) {
+      observer.unobserve(element)
+    }
+  }
+})
+
+const startCounterAnimation = () => {
+  stats.value.forEach((stat) => {
+    const duration = 2000 // 2 seconds
+    const startTime = Date.now()
+
+    const updateCounter = () => {
+      const currentTime = Date.now()
+      const elapsed = currentTime - startTime
+      const progress = Math.min(elapsed / duration, 1)
+
+      // Easing function for smooth animation
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4)
+      stat.currentValue = easeOutQuart * stat.endValue
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter)
+      } else {
+        stat.currentValue = stat.endValue
+      }
+    }
+
+    requestAnimationFrame(updateCounter)
+  })
+}
+
+const formatValue = (value: number): string => {
+  return Math.round(value).toString() + '+'
+}
 </script>
