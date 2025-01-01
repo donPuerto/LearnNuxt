@@ -16,18 +16,18 @@
             <div class="relative z-20">
               <div class="relative">
                 <h1 class="text-5xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-7xl lg:text-8xl">
-                  <span class="relative mt-4 block bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+                  <span class="relative mt-8 block bg-gradient-to-r from-primary-600 via-purple-600 to-blue-600 bg-clip-text text-transparent hover:animate-pulse transition-all duration-300">
                     Nuxt Boilerplate
                   </span>
                 </h1>
                 
-                <p class="mx-auto mt-6 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
+                <p class="mx-auto mt-2 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
                   A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS. 
                   Start your next project with best practices and powerful features out of the box.
                 </p>
 
                 <!-- CTA Buttons -->
-                <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <div class="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
                   <UButton
                     to="/components"
                     color="primary"
@@ -43,24 +43,25 @@
                     href="https://github.com"
                     target="_blank"
                     color="primary"
-                    variant="ghost"
+                    variant="outline"
                     size="xl"
                     class="w-full sm:w-auto"
                     leading-icon="i-simple-icons-github"
                     trailing-icon="i-lucide-external-link"
+                    
                   >
-                    View on GitHub
+                    GitHub
                   </UButton>
                 </div>
 
                 <!-- Tech Logos -->
-                <div class="mt-12">
+                <div class="mt-8">
                   <p class="text-center text-lg font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">
                     Powered by modern technologies
                   </p>
-                  <div class="mt-8 flex flex-wrap items-center justify-center gap-6">
+                  <div class="mt-6 flex flex-wrap items-center justify-center gap-6">
                     <div v-for="tech in technologies" :key="tech.name" class="group flex flex-col items-center">
-                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-2xl bg-white/5 p-5 sm:p-6 shadow-lg ring-1 ring-gray-900/10 transition duration-300 ease-out group-hover:scale-110 group-hover:bg-white/10 group-hover:shadow-xl group-hover:shadow-gray-900/20 dark:bg-white/5 dark:ring-white/10 dark:group-hover:bg-white/10">
+                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
                         <UIcon 
                           :name="tech.icon" 
                           class="size-14 sm:size-16 transform transition duration-300 ease-out group-hover:rotate-3"
@@ -75,7 +76,7 @@
                       </span>
                       <span 
                         v-if="tech.version" 
-                        class="mt-0.5 text-xs px-2 py-0.5 rounded-full transform transition duration-300 ease-out group-hover:scale-105"
+                        class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75rem)] transform transition duration-300 ease-out group-hover:scale-105"
                         :class="`bg-${tech.color}-50 text-${tech.color}-700 dark:bg-${tech.color}-400/10 dark:text-${tech.color}-400`"
                       >
                         v{{ tech.version }}
@@ -106,19 +107,21 @@
                 </div>
               </div>
               <dl class="col-span-2 grid grid-cols-1 gap-x-6 gap-y-8 text-base leading-7 text-gray-600 dark:text-gray-300 sm:grid-cols-2 lg:gap-y-12">
-                <div v-for="feature in features" :key="feature.name" class="group relative rounded-2xl bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
+                <div v-for="feature in features" :key="feature.name" class="group relative rounded-lg bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
                   <dt class="font-semibold text-gray-900 dark:text-white">
-                    <div class="absolute -left-3 top-5 flex size-7 items-center justify-center rounded-lg bg-primary-600/10 dark:bg-primary-400/10">
+                    <div class="absolute -left-3 top-5 flex size-7 items-center justify-center rounded-xl bg-primary-100/50 dark:bg-primary-500/10">
                       <UIcon 
                         :name="feature.icon" 
-                        class="size-4 text-primary-600 dark:text-primary-400"
+                        class="size-4 text-primary-500 dark:text-primary-400"
                       />
                     </div>
                     {{ feature.name }}
                   </dt>
                   <dd class="mt-2 text-sm">{{ feature.description }}</dd>
                   <div class="mt-3 flex flex-wrap gap-1.5">
-                    <span v-for="tag in feature.tags" :key="tag" class="inline-flex items-center rounded-md bg-primary-50 px-2 py-0.5 text-xs font-medium text-primary-700 ring-1 ring-inset ring-primary-600/10 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400/20">
+                    <span v-for="tag in feature.tags" :key="tag" 
+                      class="inline-flex items-center rounded-[calc(var(--ui-radius)*0.75rem)] px-2 py-0.5 text-xs font-medium transform transition duration-300 ease-out bg-primary-50 text-primary-700 ring-1 ring-inset ring-primary-500 dark:bg-primary-400/10 dark:text-primary-400 dark:ring-primary-400"
+                    >
                       {{ tag }}
                     </span>
                   </div>
@@ -142,7 +145,7 @@
             </p>
           </div>
           <dl class="mx-auto mt-8 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-12 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
-            <div v-for="stat in stats" :key="stat.name" class="group relative flex flex-col gap-y-2 overflow-hidden rounded-2xl bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
+            <div v-for="stat in stats" :key="stat.name" class="group relative flex flex-col gap-y-2 overflow-hidden rounded-lg bg-white/50 p-5 transition duration-200 hover:bg-white/70 dark:bg-white/5 dark:hover:bg-white/10">
               <dt class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-300">
                 {{ stat.name }}
               </dt>
@@ -203,28 +206,32 @@ const technologies = [
 
 const features = [
   {
-    name: 'Nuxt 4',
-    icon: 'i-custom-logo',
-    description: 'Latest version of Nuxt.js with improved performance, better DX, and new features.',
-    tags: ['Vue 3', 'TypeScript', 'Vite']
+    name: 'Modern Stack',
+    icon: 'i-heroicons-outline-cube-transparent',
+    description:
+      'Built with the latest technologies including Nuxt 4, Vue 3, and TypeScript for a robust development experience.',
+    tags: ['Nuxt 4', 'Vue 3', 'TypeScript']
   },
   {
-    name: 'Nuxt UI 3',
-    icon: 'i-lucide-layout-template',
-    description: 'Beautiful and accessible components built with TailwindCSS.',
-    tags: ['Components', 'Accessible', 'Dark Mode']
+    name: 'UI Components',
+    icon: 'i-heroicons-outline-squares-2x2',
+    description:
+      'Powered by Nuxt UI, offering a comprehensive set of ready-to-use components that follow best practices.',
+    tags: ['Nuxt UI', 'Components', 'TailwindCSS']
   },
   {
-    name: 'TailwindCSS',
-    icon: 'i-simple-icons-tailwindcss',
-    description: 'A utility-first CSS framework for rapid UI development.',
-    tags: ['JIT', 'Responsive', 'Custom Theme']
+    name: 'Dark Mode',
+    icon: 'i-heroicons-outline-moon',
+    description:
+      'First-class dark mode support with smooth transitions and system preference detection.',
+    tags: ['Theme', 'Color Modes', 'Accessibility']
   },
   {
-    name: 'Developer Experience',
-    icon: 'i-lucide-code',
-    description: 'ESLint, TypeScript, and VS Code settings preconfigured.',
-    tags: ['ESLint', 'DevTools', 'HMR']
+    name: 'Type Safe',
+    icon: 'i-heroicons-outline-shield-check',
+    description:
+      'Full TypeScript support with auto-generated types and Vue macros for an enhanced development experience.',
+    tags: ['TypeScript', 'Type Safety', 'DX']
   }
 ]
 
@@ -234,4 +241,6 @@ const stats = [
   { name: 'Build Time', value: '< 1s' },
   { name: 'Time to Interactive', value: '< 2s' },
 ]
+
+
 </script>

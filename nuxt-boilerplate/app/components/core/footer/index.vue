@@ -6,19 +6,20 @@
           <div class="flex justify-center">
             <UIcon
               name="i-custom-logo"
-              class="size-12 text-primary-500 dark:text-primary-400"
+              size="32"
+              class="text-primary-500 dark:text-primary-400 transition-all duration-300 hover:scale-110 hover:animate-pulse sm:size-36 md:size-40 lg:size-44"
             />
           </div>
   
           <!-- Copyright -->
           <div class="text-center">
-            <p class="text-sm text-gray-500 dark:text-gray-400">
+            <p class="text-base sm:text-lg md:text-xl text-gray-500 dark:text-gray-400">
               {{ new Date().getFullYear() }} Nuxt Boilerplate. All rights reserved.
             </p>
           </div>
   
           <!-- Social Links -->
-          <div class="flex items-center space-x-6">
+          <div class="flex items-center gap-4 sm:gap-6 md:gap-8">
             <UButton
               v-for="social in socials"
               :key="social.name"
@@ -28,11 +29,13 @@
               color="primary"
               variant="ghost"
               :aria-label="social.name"
+              size="lg"
+              class="transition-all duration-300 hover:scale-110 hover:animate-pulse p-2 sm:p-3 md:p-4"
             />
           </div>
   
           <!-- Description -->
-          <p class="text-center text-sm text-gray-500 dark:text-gray-400 max-w-2xl">
+          <p class="text-center text-sm sm:text-base md:text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto px-4">
             A modern and feature-rich boilerplate built with Nuxt 4, enhanced by Nuxt UI 3, and powered by TailwindCSS. Perfect for building scalable, performant, and beautiful web applications.
           </p>
         </div>
