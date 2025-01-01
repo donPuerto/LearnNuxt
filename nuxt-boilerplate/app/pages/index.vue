@@ -21,7 +21,7 @@
                   </span>
                 </h1>
                 
-                <p class="mx-auto mt-2 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
+                <p class="mx-auto mt-2 max-w-4xl text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
                   A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS. 
                   Start your next project with best practices and powerful features out of the box.
                 </p>
