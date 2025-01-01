@@ -5,6 +5,7 @@
           <!-- Logo -->
           <div class="flex justify-center">
             <UIcon
+              color="primary"
               name="i-custom-logo"
               size="32"
               class="text-primary-500 dark:text-primary-400 transition-all duration-300 hover:scale-110 hover:animate-pulse sm:size-36 md:size-40 lg:size-44"
@@ -20,18 +21,20 @@
   
           <!-- Social Links -->
           <div class="flex items-center gap-4 sm:gap-6 md:gap-8">
-            <UButton
+            <a
               v-for="social in socials"
               :key="social.name"
-              :icon="social.icon"
-              :to="social.url"
+              :href="social.url"
               target="_blank"
-              color="primary"
-              variant="ghost"
               :aria-label="social.name"
-              size="lg"
-              class="transition-all duration-300 hover:scale-110 hover:animate-pulse p-2 sm:p-3 md:p-4"
-            />
+              class="inline-flex items-center justify-center rounded-[var(--ui-radius)] p-1.5 sm:p-2 md:p-2.5 text-[var(--ui-color-primary-600)] hover:text-[var(--ui-color-primary-500)] hover:bg-[var(--ui-color-primary-50)] dark:text-[var(--ui-color-primary-400)] dark:hover:text-[var(--ui-color-primary-300)] dark:hover:bg-[var(--ui-color-primary-950)] transition-all duration-300 hover:scale-110"
+            >
+              <Icon 
+                :name="social.icon"
+                :size="22"
+                class="sm:text-3xl md:text-4xl"
+              />
+            </a>
           </div>
   
           <!-- Description -->

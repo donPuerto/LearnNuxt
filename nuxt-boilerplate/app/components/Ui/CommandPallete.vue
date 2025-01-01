@@ -1,6 +1,6 @@
 <template>
   <UModal>
-
+    <UTooltip text="Command Pallete" :kbds="['meta', 'P']" >
       <UButton
           size="xl"
           color="neutral"
@@ -8,6 +8,8 @@
           icon="i-lucide-search"
           :style="{ color: `var(--ui-primary)` }"
       />
+    </UTooltip>
+      
     
    
     <template #content>
