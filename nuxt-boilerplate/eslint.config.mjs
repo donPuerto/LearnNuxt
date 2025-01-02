@@ -17,6 +17,7 @@ export default withNuxt(
       'test/assets',
       '**/.nuxt',
       '**/.output',
+      'dist',
     ],
   },
   {

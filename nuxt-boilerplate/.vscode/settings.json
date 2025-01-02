@@ -4,9 +4,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "emmet.includeLanguages": {
-    "postcss": "css"
-  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "eslint.format.enable": true,
+  "prettier.enable": false,
   // ESLint
   "eslint.validate": [
     "javascript",
@@ -21,23 +21,14 @@
     "yaml",
     "toml"
   ],
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "[vue]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "eslint.format.enable": true,
-  "prettier.enable": false,
   "files.associations": {
     "*.css": "tailwindcss"
   },
   "editor.quickSuggestions": {
     "strings": "on"
+  },
+  "emmet.includeLanguages": {
+    "postcss": "css"
   },
   "cSpell.words": [
     "unhead"

@@ -6,7 +6,17 @@ import pkg from './package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@nuxt/devtools', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxtjs/robots', '@nuxtjs/sitemap', 'nuxt-schema-org'],
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/devtools',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/fonts',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
+    'nuxt-schema-org',
+    '@nuxtjs/i18n',
+  ],
   devtools: { enabled: true },
   app: {
     rootAttrs: {
@@ -85,6 +95,23 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
+  // i18n: {
+  //   strategy: 'prefix_except_default',
+  //   defaultLocale: 'en',
+  //   locales: [
+  //     {
+  //       code: 'en',
+  //       name: 'English',
+  //       file: 'en.json',
+  //     },
+  //     {
+  //       code: 'es',
+  //       name: 'Español',
+  //       file: 'es.json',
+  //     },
+  //   ],
+  //   lazy: true,
+  // },
   icon: {
     customCollections: [{
       prefix: 'custom',
