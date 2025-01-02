@@ -290,31 +290,31 @@ const handleStatClick = async () => {
     </div>
 
     <!-- Hero Section -->
-    <div class="relative isolate px-6 lg:px-8">
+    <div class="relative px-6 isolate lg:px-8">
       <!-- Gradient Balls -->
-      <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+      <div class="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
         <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
       </div>
 
       <!-- Content -->
-      <div class="mx-auto max-w-4xl py-8 sm:py-12 lg:py-16">
-        <div class="relative mx-auto max-w-6xl text-center">
+      <div class="max-w-4xl py-8 mx-auto sm:py-12 lg:py-16">
+        <div class="relative max-w-6xl mx-auto text-center">
           <!-- Hero Content -->
           <div class="relative z-20">
             <div class="relative">
               <h1 class="text-5xl font-bold tracking-tight text-[var(--ui-color-primary-600)] dark:text-[var(--ui-color-primary-400)] sm:text-6xl md:text-7xl lg:text-8xl">
-                <span class="relative mt-2 block">
+                <span class="relative block mt-2">
                   Nuxt Boilerplate
                 </span>
               </h1>
 
-              <p class="mx-auto mt-2 max-w-4xl text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
+              <p class="max-w-4xl mx-auto mt-2 text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
                 A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS.
                 Start your next project with best practices and powerful features out of the box.
               </p>
 
               <!-- CTA Buttons -->
-              <div class="mt-6 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div class="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
                 <UButton
                   to="/components"
                   color="primary"
@@ -343,22 +343,22 @@ const handleStatClick = async () => {
               <!-- Tech Logos -->
               <div class="mt-8">
                 <h2
-                  class="cursor-pointer text-base font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400"
+                  class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
                   @click="handleStatClick"
                 >
                   Powered by modern technologies
                 </h2>
-                <div class="mt-6 flex flex-wrap items-center justify-center gap-6">
+                <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
                   <div
                     v-for="tech in technologies"
                     :key="tech.name"
-                    class="group flex cursor-pointer flex-col items-center"
+                    class="flex flex-col items-center cursor-pointer group"
                     @click="handleStatClick"
                   >
                     <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
                       <UIcon
                         :name="tech.icon"
-                        class="size-14 sm:size-16 transform transition duration-300 ease-out group-hover:rotate-3"
+                        class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
                         :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
                       />
                     </div>
@@ -389,11 +389,11 @@ const handleStatClick = async () => {
     </div>
 
     <!-- Tech Stack -->
-    <div class="mx-auto mt-8 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="px-4 mx-auto mt-8 max-w-7xl sm:px-6 lg:px-8">
       <div class="relative isolate overflow-hidden bg-[var(--ui-color-primary-50)] px-6 py-12 shadow-2xl dark:bg-[var(--ui-color-primary-950)] sm:rounded-[var(--ui-radius)] sm:px-16 xl:py-16">
         <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.900),transparent)]" />
         <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] shadow-xl shadow-primary-600/10 ring-1 ring-[var(--ui-color-primary-200)] dark:ring-[var(--ui-color-primary-800)] sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
-        <div class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+        <div class="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div class="lg:pr-8 lg:pt-4">
             <div class="lg:max-w-lg">
               <h2 class="text-base font-semibold leading-7 text-primary-600 dark:text-primary-400">
@@ -407,10 +407,10 @@ const handleStatClick = async () => {
               </p>
             </div>
           </div>
-          <dl class="col-span-2 grid grid-cols-1 gap-x-6 gap-y-8 text-base leading-7 text-gray-600 dark:text-gray-300 sm:grid-cols-2 lg:gap-y-12">
+          <dl class="grid grid-cols-1 col-span-2 text-base leading-7 text-gray-600 gap-x-6 gap-y-8 dark:text-gray-300 sm:grid-cols-2 lg:gap-y-12">
             <div v-for="feature in features" :key="feature.name" class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
               <dt class="font-semibold text-gray-900 dark:text-white">
-                <div class="absolute -left-3 top-5 flex size-7 items-center justify-center rounded-xl bg-primary-100/50 dark:bg-primary-500/10">
+                <div class="absolute flex items-center justify-center -left-3 top-5 size-7 rounded-xl bg-primary-100/50 dark:bg-primary-500/10">
                   <UIcon
                     :name="feature.icon"
                     class="size-4 text-primary-500 dark:text-primary-400"
@@ -437,8 +437,8 @@ const handleStatClick = async () => {
     </div>
 
     <!-- Stats -->
-    <div class="mx-auto mt-16 max-w-7xl px-4 pb-16 sm:mt-20 sm:px-6 sm:pb-24 lg:mt-24 lg:px-8 lg:pb-32">
-      <div class="mx-auto max-w-2xl lg:mx-0">
+    <div class="px-4 pb-16 mx-auto mt-16 max-w-7xl sm:mt-20 sm:px-6 sm:pb-24 lg:mt-24 lg:px-8 lg:pb-32">
+      <div class="max-w-2xl mx-auto lg:mx-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           Built for Performance
         </h2>
@@ -446,7 +446,7 @@ const handleStatClick = async () => {
           Our boilerplate is optimized for speed, developer experience, and production readiness.
         </p>
       </div>
-      <dl ref="statsRef" class="mx-auto mt-4 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 text-white sm:mt-6 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
+      <dl ref="statsRef" class="grid max-w-2xl grid-cols-1 mx-auto mt-4 text-white gap-x-6 gap-y-8 sm:mt-6 sm:grid-cols-2 sm:gap-y-12 lg:mx-0 lg:max-w-none lg:grid-cols-4">
         <div
           v-for="stat in stats"
           :key="stat.name"
@@ -458,7 +458,7 @@ const handleStatClick = async () => {
           <dd class="order-first text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
             {{ formatValue(stat.currentValue) }}
           </dd>
-          <div class="absolute bottom-0 left-0 h-1 w-full bg-gradient-to-r from-primary-600 to-purple-600 opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+          <div class="absolute bottom-0 left-0 w-full h-1 transition-opacity duration-200 opacity-0 bg-gradient-to-r from-primary-600 to-purple-600 group-hover:opacity-100" />
         </div>
       </dl>
     </div>
