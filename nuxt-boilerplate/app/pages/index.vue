@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue'
 import type JSConfetti from 'js-confetti'
-import { useAppConfig } from '#imports'
+import { useAppConfig, useHead, useSeoMeta } from '#imports'
 
 let jsConfetti: JSConfetti | null = null
 
@@ -31,12 +31,78 @@ const keywords = ref(appConfig.seo.keywords)
 const viewport = ref(appConfig.seo.viewport)
 const robots = ref(appConfig.seo.robots)
 
+// Comprehensive head management
+useHead({
+  // Basic document title and meta
+  title: () => title.value,
+  titleTemplate: title => `${title} - ${ogSiteName.value}`,
+  meta: [
+    // Basic SEO
+    { name: 'description', content: () => description.value },
+    { name: 'keywords', content: () => keywords.value },
+    { name: 'author', content: () => author.value },
+    { name: 'robots', content: () => robots.value },
+    { name: 'viewport', content: () => viewport.value },
+
+    // OpenGraph
+    { property: 'og:title', content: () => ogTitle.value },
+    { property: 'og:description', content: () => ogDescription.value },
+    { property: 'og:image', content: () => image.value },
+    { property: 'og:image:alt', content: () => ogImageAlt.value },
+    { property: 'og:url', content: baseUrl },
+    { property: 'og:type', content: () => ogType.value },
+    { property: 'og:site_name', content: () => ogSiteName.value },
+
+    // Twitter
+    { name: 'twitter:card', content: () => twitterCard.value },
+    { name: 'twitter:title', content: () => twitterTitle.value },
+    { name: 'twitter:description', content: () => twitterDescription.value },
+    { name: 'twitter:image', content: () => image.value },
+  ],
+
+  // Link tags
+  link: [
+    // Canonical URL
+    { rel: 'canonical', href: baseUrl },
+    // Favicon
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    // Web App Manifest
+    { rel: 'manifest', href: '/site.webmanifest' },
+    // Apple Touch Icon
+    { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+  ],
+
+  // HTML Attributes
+  htmlAttrs: {
+    lang: 'en',
+    dir: 'ltr',
+  },
+
+  // Body Attributes
+  bodyAttrs: {
+    class: 'antialiased',
+  },
+
+  // Scripts
+  script: [
+    // Example structured data
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': () => ogSiteName.value,
+        'description': () => description.value,
+        'url': baseUrl,
+      }),
+    },
+  ],
+})
+
+// Also keep the useSeoMeta for additional SEO optimization
 useSeoMeta({
-  // Basic SEO - Used by search engines and browsers
   title: () => title.value,
   description: () => description.value,
-
-  // Open Graph - Used by Facebook, LinkedIn, etc
   ogTitle: () => ogTitle.value,
   ogDescription: () => ogDescription.value,
   ogImage: () => image.value,
@@ -44,14 +110,10 @@ useSeoMeta({
   ogUrl: baseUrl,
   ogType: () => ogType.value,
   ogSiteName: () => ogSiteName.value,
-
-  // Twitter - Used by Twitter cards
   twitterCard: () => twitterCard.value,
   twitterTitle: () => twitterTitle.value,
   twitterDescription: () => twitterDescription.value,
   twitterImage: () => image.value,
-
-  // Additional metadata
   author: () => author.value,
   keywords: () => keywords.value,
   viewport: () => viewport.value,
