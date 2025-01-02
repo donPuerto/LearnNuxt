@@ -1,3 +1,16 @@
+<script setup lang="ts">
+const appConfig = useAppConfig()
+
+useServerSeoMeta({
+  title: 'My Nuxt App',
+  ogTitle: 'My Nuxt App',
+  description: 'Welcome to my amazing Nuxt application',
+  ogDescription: 'Welcome to my amazing Nuxt application',
+  ogImage: 'https://your-domain.com/og-image.jpg',
+  twitterCard: 'summary_large_image',
+})
+</script>
+
 <template>
   <UApp :toaster="appConfig.toaster">
     <NuxtLoadingIndicator color="#FFF" />
@@ -5,13 +18,9 @@
       <NuxtLayout>
         <NuxtPage />
       </NuxtLayout>
-    </div>    
+    </div>
   </UApp>
 </template>
-
-<script setup>
-const appConfig = useAppConfig()
-</script>
 
 <style scoped>
 div {

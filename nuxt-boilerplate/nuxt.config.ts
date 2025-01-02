@@ -1,43 +1,38 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
-import pkg from './package.json'
 import { createResolver } from '@nuxt/kit'
+import pkg from './package.json'
+
 const { resolve } = createResolver(import.meta.url)
 
-
 export default defineNuxtConfig({
+  modules: ['@nuxt/ui', '@nuxt/devtools', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts'],
+  devtools: { enabled: true },
   app: {
     rootAttrs: {
       'vaul-drawer-wrapper': '',
-      'class': 'bg-[var(--ui-bg)]'
-    }
+      'class': 'bg-[var(--ui-bg)]',
+    },
   },
-  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public: {
       version: pkg.version,
+      baseUrl: process.env.BASE_URL || 'http://localhost:3000',
       dependencies: {
         vue: pkg.dependencies.vue,
         nuxt: pkg.dependencies.nuxt,
-        nuxtUI: pkg.dependencies['@nuxt/ui']
+        nuxtUI: pkg.dependencies['@nuxt/ui'],
       },
       devDependencies: {
         typescript: pkg.devDependencies.typescript,
-      }
-    }
-  },
-  modules: ['@nuxt/ui', '@nuxt/devtools', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts'],
-  css: ['~/assets/css/main.css'],
-  postcss: {
-    plugins: {
-      '@tailwindcss/postcss': {},
-      autoprefixer: {}
-    }
+      },
+    },
   },
   future: {
     compatibilityVersion: 4,
   },
- 
+
   // To re-enable _all_ Nuxt v3 behavior, set the following options:
   // srcDir: ".",
   //  dir: {
@@ -72,6 +67,12 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
+  postcss: {
+    plugins: {
+      '@tailwindcss/postcss': {},
+      'autoprefixer': {},
+    },
+  },
   eslint: {
     config: {
       stylistic: true,
@@ -80,16 +81,16 @@ export default defineNuxtConfig({
   icon: {
     customCollections: [{
       prefix: 'custom',
-      dir: resolve('./app/assets/icons')    
+      dir: resolve('./app/assets/icons'),
     }],
     clientBundle: {
       scan: true,
-      includeCustomCollections: true
+      includeCustomCollections: true,
     },
     provider: 'iconify',
     serverBundle: {
-      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon',' catppuccin'],
+      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', ' catppuccin'],
     },
   },
- 
+
 })

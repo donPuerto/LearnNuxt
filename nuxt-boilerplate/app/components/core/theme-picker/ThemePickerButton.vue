@@ -1,3 +1,61 @@
+<script setup lang="ts">
+import colors from 'tailwindcss/colors'
+import { omit } from '#ui/utils'
+
+const appConfig = useAppConfig()
+const colorMode = useColorMode()
+
+// Computed
+
+const neutralColors = ['slate', 'gray', 'zinc', 'neutral', 'stone']
+const neutral = computed({
+  get() {
+    return appConfig.ui.colors.neutral
+  },
+  set(option) {
+    appConfig.ui.colors.neutral = option
+    window.localStorage.setItem('nuxt-ui-neutral', appConfig.ui.colors.neutral)
+  },
+})
+
+const colorsToOmit = ['inherit', 'current', 'transparent', 'black', 'white', ...neutralColors]
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const primaryColors = Object.keys(omit(colors, colorsToOmit as any))
+const primary = computed({
+  get() {
+    return appConfig.ui.colors.primary
+  },
+  set(option) {
+    appConfig.ui.colors.primary = option
+    window.localStorage.setItem('nuxt-ui-primary', appConfig.ui.colors.primary)
+  },
+})
+
+const radiuses = [0, 0.125, 0.25, 0.375, 0.5]
+const radius = computed({
+  get() {
+    return appConfig.theme.radius
+  },
+  set(option) {
+    appConfig.theme.radius = option
+    window.localStorage.setItem('nuxt-ui-radius', String(appConfig.theme.radius))
+  },
+})
+
+const modes = [
+  { label: 'light', icon: appConfig.ui.icons.light },
+  { label: 'dark', icon: appConfig.ui.icons.dark },
+]
+const mode = computed({
+  get() {
+    return colorMode.value
+  },
+  set(option) {
+    colorMode.preference = option
+  },
+})
+</script>
+
 <template>
   <UPopover :ui="{ content: 'w-72 px-6 py-4 flex flex-col gap-4' }">
     <template #default="{ open }">
@@ -81,60 +139,3 @@
     </template>
   </UPopover>
 </template>
-
-<script setup lang="ts">
-import colors from 'tailwindcss/colors'
-import { omit } from '#ui/utils'
-
-const appConfig = useAppConfig()
-const colorMode = useColorMode()
-
-// Computed
-
-const neutralColors = ['slate', 'gray', 'zinc', 'neutral', 'stone']
-const neutral = computed({
-  get() {
-    return appConfig.ui.colors.neutral
-  },
-  set(option) {
-    appConfig.ui.colors.neutral = option
-    window.localStorage.setItem('nuxt-ui-neutral', appConfig.ui.colors.neutral)
-  },
-})
-
-const colorsToOmit = ['inherit', 'current', 'transparent', 'black', 'white', ...neutralColors]
-const primaryColors = Object.keys(omit(colors, colorsToOmit as any))
-const primary = computed({
-  get() {
-    return appConfig.ui.colors.primary
-  },
-  set(option) {
-    appConfig.ui.colors.primary = option
-    window.localStorage.setItem('nuxt-ui-primary', appConfig.ui.colors.primary)
-  },
-})
-
-const radiuses = [0, 0.125, 0.25, 0.375, 0.5]
-const radius = computed({
-  get() {
-    return appConfig.theme.radius
-  },
-  set(option) {
-    appConfig.theme.radius = option
-    window.localStorage.setItem('nuxt-ui-radius', String(appConfig.theme.radius))
-  },
-})
-
-const modes = [
-  { label: 'light', icon: appConfig.ui.icons.light },
-  { label: 'dark', icon: appConfig.ui.icons.dark },
-]
-const mode = computed({
-  get() {
-    return colorMode.value
-  },
-  set(option) {
-    colorMode.preference = option
-  },
-})
-</script>

@@ -6,5 +6,5 @@ module.exports = {
     // iconsPlugin({
     //   collections: getIconCollections([/** ... */]),
     // }),
-  ]
+  ],
 }

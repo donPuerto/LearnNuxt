@@ -4,7 +4,7 @@ export const useConfetti = () => {
   let jsConfetti: JSConfetti | null = null
 
   const initConfetti = async () => {
-    if (process.client && !jsConfetti) {
+    if (import.meta.client && !jsConfetti) {
       const JSConfettiModule = (await import('js-confetti')).default
       jsConfetti = new JSConfettiModule()
     }
@@ -31,6 +31,6 @@ export const useConfetti = () => {
   }
 
   return {
-    showConfetti
+    showConfetti,
   }
 }
