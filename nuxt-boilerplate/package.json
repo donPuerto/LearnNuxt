@@ -16,7 +16,9 @@
     "@nuxt/fonts": "0.10.3",
     "@nuxt/icon": "1.10.3",
     "@nuxt/ui": "3.0.0-alpha.10",
+    "@nuxtjs/sitemap": "7.0.1",
     "nuxt": "^3.15.0",
+    "nuxt-schema-org": "4.0.4",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -34,6 +36,7 @@
     "@nuxt/eslint": "^0.7.4",
     "@nuxt/kit": "npm:@nuxt/kit-nightly@latest",
     "@nuxt/schema": "^3.15.0",
+    "@nuxtjs/robots": "^5.1.0",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@tailwindcss/postcss": "0.0.0-development.1",
     "@tailwindcss/vite": "4.0.0-beta.8",

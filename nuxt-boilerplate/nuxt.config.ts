@@ -6,7 +6,7 @@ import pkg from './package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  modules: ['@nuxt/ui', '@nuxt/devtools', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts'],
+  modules: ['@nuxt/ui', '@nuxt/devtools', '@nuxt/eslint', '@nuxt/icon', '@nuxt/fonts', '@nuxtjs/robots', '@nuxtjs/sitemap', 'nuxt-schema-org'],
   devtools: { enabled: true },
   app: {
     rootAttrs: {
@@ -15,6 +15,13 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/css/main.css'],
+  site: {
+    url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+    name: 'Nuxt Boilerplate',
+    description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',
+    defaultLocale: 'en',
+  },
+
   runtimeConfig: {
     public: {
       version: pkg.version,
@@ -89,8 +96,11 @@ export default defineNuxtConfig({
     },
     provider: 'iconify',
     serverBundle: {
-      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', ' catppuccin'],
+      collections: ['uil', 'heroicons', 'logos', 'lucide', 'simple-icons', 'mdi', 'logos', 'skill-icons', 'carbon', 'catppuccin'],
     },
   },
-
+  robots: {
+    sitemap: ['/sitemap.xml'],
+    robotsEnabledValue: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+  },
 })

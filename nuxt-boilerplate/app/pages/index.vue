@@ -3,16 +3,17 @@ import { computed, ref, onMounted } from 'vue'
 import type JSConfetti from 'js-confetti'
 import { useAppConfig, useHead, useSeoMeta } from '#imports'
 
+// Initialize
 let jsConfetti: JSConfetti | null = null
 
-// config
+// Config
 const appConfig = useAppConfig()
 const config = useRuntimeConfig().public
+const baseUrl = config.baseUrl
 
 // Dynamic SEO meta tags
 const title = ref(appConfig.seo.title)
 const description = ref(appConfig.seo.description)
-const baseUrl = config.baseUrl
 const image = ref(`${baseUrl}${appConfig.seo.image}`)
 
 // Social media specific meta
@@ -21,6 +22,8 @@ const ogDescription = ref(appConfig.seo.openGraph.description)
 const ogImageAlt = ref(appConfig.seo.openGraph.imageAlt)
 const ogType = ref<'website'>('website')
 const ogSiteName = ref(appConfig.seo.openGraph.siteName)
+
+// Twitter meta
 const twitterTitle = ref(appConfig.seo.twitter.title)
 const twitterDescription = ref(appConfig.seo.twitter.description)
 const twitterCard = ref<'summary_large_image'>(appConfig.seo.twitter.card)
@@ -31,11 +34,22 @@ const keywords = ref(appConfig.seo.keywords)
 const viewport = ref(appConfig.seo.viewport)
 const robots = ref(appConfig.seo.robots)
 
-// Comprehensive head management
+// Schema.org structured data
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  'name': () => ogSiteName.value,
+  'description': () => description.value,
+  'url': baseUrl,
+}
+
+// Head configuration
 useHead({
   // Basic document title and meta
   title: () => title.value,
   titleTemplate: title => `${title} - ${ogSiteName.value}`,
+
+  // Meta tags
   meta: [
     // Basic SEO
     { name: 'description', content: () => description.value },
@@ -62,13 +76,9 @@ useHead({
 
   // Link tags
   link: [
-    // Canonical URL
     { rel: 'canonical', href: baseUrl },
-    // Favicon
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    // Web App Manifest
     { rel: 'manifest', href: '/site.webmanifest' },
-    // Apple Touch Icon
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
   ],
 
@@ -85,21 +95,14 @@ useHead({
 
   // Scripts
   script: [
-    // Example structured data
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        'name': () => ogSiteName.value,
-        'description': () => description.value,
-        'url': baseUrl,
-      }),
+      children: JSON.stringify(structuredData),
     },
   ],
 })
 
-// Also keep the useSeoMeta for additional SEO optimization
+// SEO meta configuration
 useSeoMeta({
   title: () => title.value,
   description: () => description.value,
@@ -120,8 +123,10 @@ useSeoMeta({
   robots: () => robots.value,
 })
 
+// Computed
 const neutral = computed(() => appConfig.ui.colors.neutral)
 
+// Technologies
 const technologies = ref([
   {
     name: 'Vue',
@@ -155,6 +160,7 @@ const technologies = ref([
   },
 ])
 
+// Features
 const features = ref([
   {
     name: 'Modern Stack',
@@ -182,6 +188,7 @@ const features = ref([
   },
 ])
 
+// Stats
 const baseStats = [
   { name: 'Lighthouse Score', value: '100/100', endValue: 100 },
   { name: 'Bundle Size', value: '< 100kb', endValue: 100 },
@@ -197,23 +204,10 @@ const stats = ref(baseStats.map(stat => ({
 const statsRef = ref<HTMLElement | null>(null)
 const isIntersecting = ref(false)
 
-const handleStatClick = async () => {
-  if (!jsConfetti) return
-
-  await jsConfetti.addConfetti({
-    emojis: ['⭐', '🚀', '💻', '🔥', '✨', '💡', '🎉'],
-    emojiSize: 20,
-    confettiNumber: 60,
-    confettiRadius: 6,
-    // confettiSpeed: 0.8,
-  })
-}
-
+// Lifecycle hooks
 onMounted(async () => {
-  if (import.meta.client) {
-    const JSConfetti = (await import('js-confetti')).default
-    jsConfetti = new JSConfetti()
-  }
+  const { default: JSConfetti } = await import('js-confetti')
+  jsConfetti = new JSConfetti()
 })
 
 onMounted(() => {
@@ -240,6 +234,7 @@ onMounted(() => {
   }
 })
 
+// Counter animation
 const startCounterAnimation = () => {
   stats.value.forEach((stat) => {
     const duration = 2000 // 2 seconds
@@ -266,8 +261,22 @@ const startCounterAnimation = () => {
   })
 }
 
+// Format value
 const formatValue = (value: number): string => {
   return Math.round(value).toString() + '+'
+}
+
+// Handle stat click
+const handleStatClick = async () => {
+  if (!jsConfetti) return
+
+  await jsConfetti.addConfetti({
+    emojis: ['⭐', '🚀', '💻', '🔥', '✨', '💡', '🎉'],
+    emojiSize: 20,
+    confettiNumber: 60,
+    confettiRadius: 6,
+    // confettiSpeed: 0.8,
+  })
 }
 </script>
 
