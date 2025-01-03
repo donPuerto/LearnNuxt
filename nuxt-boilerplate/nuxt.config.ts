@@ -31,7 +31,8 @@ export default defineNuxtConfig({
     description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',
     defaultLocale: 'en',
   },
-
+  ui: {
+  },
   runtimeConfig: {
     public: {
       version: pkg.version,
@@ -98,6 +99,8 @@ export default defineNuxtConfig({
   i18n: {
     langDir: 'locales',
     lazy: true,
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
     locales: [
       {
         code: 'en',
@@ -119,8 +122,6 @@ export default defineNuxtConfig({
       },
     ],
     strategy: 'prefix_except_default',
-    defaultLocale: 'en',
-    detectBrowserLanguage: false,
   },
   icon: {
     customCollections: [{

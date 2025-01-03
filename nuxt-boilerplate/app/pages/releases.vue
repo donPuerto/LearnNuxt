@@ -45,6 +45,7 @@ const switchLanguage = async (value: LocaleCode): Promise<void> => {
         :label="t('common.search')"
         @update:model-value="switchLanguage"
       />
+      <UiLanguageDropdown mode="flag-only" />
     </div>
 
     <!-- Page Content -->
