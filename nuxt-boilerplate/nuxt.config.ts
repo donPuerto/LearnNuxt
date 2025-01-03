@@ -95,23 +95,33 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  // i18n: {
-  //   strategy: 'prefix_except_default',
-  //   defaultLocale: 'en',
-  //   locales: [
-  //     {
-  //       code: 'en',
-  //       name: 'English',
-  //       file: 'en.json',
-  //     },
-  //     {
-  //       code: 'es',
-  //       name: 'Español',
-  //       file: 'es.json',
-  //     },
-  //   ],
-  //   lazy: true,
-  // },
+  i18n: {
+    langDir: 'locales',
+    lazy: true,
+    locales: [
+      {
+        code: 'en',
+        iso: 'en-US',
+        name: 'English',
+        file: 'en.json',
+      },
+      {
+        code: 'fr',
+        iso: 'fr-FR',
+        name: 'Français',
+        file: 'fr.json',
+      },
+      {
+        code: 'de',
+        iso: 'de-DE',
+        name: 'Deutsch',
+        file: 'de.json',
+      },
+    ],
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
+    detectBrowserLanguage: false,
+  },
   icon: {
     customCollections: [{
       prefix: 'custom',

@@ -63,7 +63,7 @@ export default withNuxt(
     // arrowParens: 'always',
     // bracketSpacing: true,
     // singleQuote: true,
-    // tabWidth: 2,
+    tabWidth: 2,
     // useTabs: false,
     // endOfLine: 'lf',
     // plugins: ['stylistic'],
