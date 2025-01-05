@@ -78,7 +78,7 @@ useHead({
   link: [
     { rel: 'canonical', href: baseUrl },
     { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'manifest', href: '/site.webmanifest' },
+    { rel: 'manifest', href: '/manifest.json' },
     { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
   ],
 

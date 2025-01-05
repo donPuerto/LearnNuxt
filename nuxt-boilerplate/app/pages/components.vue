@@ -6,32 +6,32 @@ const sidebarOpen = ref(false)
 const menuItems = [
   {
     name: 'Dashboard',
-    to: '/dashboard',
+    to: '/',
     icon: 'i-heroicons-home',
   },
   {
     name: 'Components',
-    to: '/components',
+    to: '/',
     icon: 'i-heroicons-squares-2x2',
   },
   {
     name: 'Projects',
-    to: '/projects',
+    to: '/',
     icon: 'i-heroicons-folder',
   },
   {
     name: 'Tasks',
-    to: '/tasks',
+    to: '/',
     icon: 'i-heroicons-clipboard-document-list',
   },
   {
     name: 'Team',
-    to: '/team',
+    to: '/',
     icon: 'i-heroicons-users',
   },
   {
     name: 'Settings',
-    to: '/settings',
+    to: '/',
     icon: 'i-heroicons-cog-6-tooth',
   },
 ]

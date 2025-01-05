@@ -6,6 +6,9 @@ import pkg from './package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
+  vue: {
+    propsDestructure: true,
+  },
   modules: [
     '@nuxt/ui',
     '@nuxt/devtools',

@@ -1,15 +1,26 @@
 {
   "eslint.useFlatConfig": true,
   "editor.formatOnSave": true,
-  "editor.formatOnPaste": true,
-  "editor.formatOnType": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",    
+    "source.fixAll.eslint": "explicit",
   },
+  "recommendations": [
+     "dbaeumer.vscode-eslint"
+  ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.alwaysShowStatus": true,
   "prettier.enable": false,
-  // ESLint
+  "[javascript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -18,32 +29,15 @@
     "vue",
     "html",
     "markdown",
-    "json",
-    "jsonc",
-    "yaml",
-    "toml"
+    "json"
   ],
-  "[vue]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
-  },
   "files.associations": {
-    "*.css": "tailwindcss",
-    "*.json": "jsonc"
-  },
-  "editor.quickSuggestions": {
-    "strings": "on"
-  },
-  "emmet.includeLanguages": {
-    "postcss": "css"
+    "*.css": "css",
+    "*.scss": "scss",
+    "*.sass": "sass",
+    "*.vue": "vue"
   },
   "cSpell.words": [
     "unhead"
-  ],
-
+  ]
 }

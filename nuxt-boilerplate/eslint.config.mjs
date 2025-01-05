@@ -7,6 +7,16 @@ export default withNuxt(
     rules: {
       'no-console': 'error',
       '@typescript-eslint/no-explicit-any': 'error',
+      // Disables the rule that bans certain types in TypeScript
+      '@typescript-eslint/ban-types': 'off',
+      // Controls line breaks before tag's closing brackets
+      'vue/html-closing-bracket-newline': ['error', {
+        singleline: 'never',
+        multiline: 'always',
+
+      }],
+      // Requires consistent spacing before tag's closing brackets
+      'vue/html-closing-bracket-spacing': ['error', 'always'],
     },
     ignores: [
       'node_modules/',
@@ -25,8 +35,6 @@ export default withNuxt(
       }],
       // Enforces consistent indentation in <template> (2 spaces)
       'vue/html-indent': ['error', 2],
-      // Disables the rule that bans certain types in TypeScript
-      '@typescript-eslint/ban-types': 'off',
       // Controls line breaks before tag's closing brackets
       'vue/html-closing-bracket-newline': ['error', {
         singleline: 'never',
