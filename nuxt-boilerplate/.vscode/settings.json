@@ -3,10 +3,11 @@
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
   },
   "recommendations": [
      "dbaeumer.vscode-eslint"
-  ],
+   ],
   "editor.defaultFormatter": "dbaeumer.vscode-eslint",
   "eslint.format.enable": true,
   "eslint.run": "onSave",

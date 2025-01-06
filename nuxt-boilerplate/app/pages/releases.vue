@@ -1,80 +1,61 @@
 <script setup lang="ts">
-type LocaleCode = 'en' | 'fr' | 'de'
+const { t } = useI18n()
 
-interface LocaleItem {
-  code: LocaleCode
-  name: string
-}
-
-interface SelectItem {
-  label: string
-  value: LocaleCode
-}
-
-const { t, locale, setLocale } = useI18n()
-
-const availableLocales: LocaleItem[] = [
-  { code: 'en', name: 'English' },
-  { code: 'fr', name: 'Français' },
-  { code: 'de', name: 'Deutsch' },
-]
-
-const items: SelectItem[] = availableLocales.map(locale => ({
-  label: locale.name,
-  value: locale.code,
-}))
-
-const selectedLocale = ref<LocaleCode>(locale.value as LocaleCode)
-
-const switchLanguage = async (value: LocaleCode): Promise<void> => {
-  if (value && availableLocales.some(locale => locale.code === value)) {
-    await setLocale(value)
-    selectedLocale.value = value
-  }
-}
+const sections = {
+  ui: ['nuxt_ui', 'tailwind', 'icons'],
+  core: ['nuxt', 'vue', 'typescript'],
+  seo: ['i18n', 'sitemap', 'schema', 'robots'],
+  dev: ['eslint', 'pnpm', 'vscode']
+} as const
 </script>
 
 <template>
   <div class="container mx-auto px-4 py-8">
-    <!-- Language Selector -->
-    <div class="mb-8 flex justify-end">
-      <USelect
-        v-model="selectedLocale"
-        :items="items"
-        class="w-48 bg-white dark:bg-gray-800"
-        :label="t('common.search')"
-        @update:model-value="switchLanguage"
-      />
-      <UiLanguageDropdown mode="flag-only" />
-    </div>
-
-    <!-- Page Content -->
     <div class="space-y-6">
       <h1 class="text-4xl font-bold mb-6">
-        {{ t('navigation.releases') }}
+        {{ t('releases.title') }}
       </h1>
 
       <div class="grid gap-6">
-        <!-- Sample Release Card -->
         <UCard>
           <template #header>
             <div class="flex justify-between items-center">
               <h2 class="text-xl font-semibold">
-                v1.0.0
+                {{ t('releases.version') }}
               </h2>
               <UBadge color="primary">
-                Latest
+                {{ t('releases.latest') }}
               </UBadge>
             </div>
           </template>
 
-          <div class="space-y-4">
-            <p>{{ t('common.learn_more') }}</p>
+          <div class="space-y-8">
+            <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed">
+              {{ t('releases.description') }}
+            </p>
 
-            <div class="flex gap-4">
+            <div class="space-y-8">
+              <div v-for="(features, section) in sections" :key="section" class="space-y-4">
+                <h3 class="font-semibold text-xl">
+                  {{ t(`releases.features.${section}.title`) }}
+                </h3>
+                <ul class="space-y-3 text-gray-600 dark:text-gray-400">
+                  <li v-for="feature in features" 
+                      :key="feature"
+                      class="flex items-start gap-3"
+                  >
+                    <span class="text-lg">•</span>
+                    <span>{{ t(`releases.features.${section}.${feature}`) }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="flex gap-4 pt-4">
               <UButton
                 color="primary"
                 variant="solid"
+                to="/"
               >
                 {{ t('common.get_started') }}
               </UButton>
@@ -82,6 +63,7 @@ const switchLanguage = async (value: LocaleCode): Promise<void> => {
               <UButton
                 color="primary"
                 variant="outline"
+                to="/documentation"
               >
                 {{ t('navigation.documentation') }}
               </UButton>

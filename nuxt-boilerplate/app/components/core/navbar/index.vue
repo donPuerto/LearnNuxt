@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const isDrawerOpen = ref(false)
 
 const toggleDrawer = () => {
@@ -52,7 +50,7 @@ const navigation = [
           <NuxtLink to="/" class="flex items-center gap-2 font-bold text-xl text-[var(--ui-text-highlighted)] min-w-0 focus-visible:outline-[var(--ui-primary)] shrink-0" aria-label="Nuxt UI">
             <UIcon
               name="i-custom-logo"
-              class="w-auto size-10 text-primary-500 dark:text-primary-400"
+              class="w-auto size-10 text-[var(--ui-color-primary)] dark:text-[var(--ui-color-primary-400)]"
             />
             <span class="hidden lg:block text-lg font-bold tracking-tight text-gray-900 dark:text-white">
               Nuxt <span class="text-[var(--ui-primary)]">Boilerplate</span>
@@ -67,6 +65,7 @@ const navigation = [
 
         <!-- Right side: Icons -->
         <div class="flex items-center space-x-2">
+          
           <UiThemePicker />
           <UiCommandPallete />
           <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
@@ -80,7 +79,7 @@ const navigation = [
               aria-label="GitHub"
             />
           </UTooltip>
-
+          <UiLangSwitcher mode="flag-only" />
           <UDrawer
             v-model:open="isDrawerOpen"
             should-scale-background

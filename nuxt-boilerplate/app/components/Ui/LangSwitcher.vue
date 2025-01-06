@@ -1,6 +1,6 @@
 <script setup lang="ts">
-type LocaleCode = 'en' | 'fr' | 'de'
 type DisplayMode = 'flag-only' | 'flag-with-label'
+type LocaleCode = 'en' | 'fr' | 'de'
 
 interface Props {
   mode?: DisplayMode
@@ -16,37 +16,51 @@ interface LocaleItem {
   icon: string
 }
 
-const { locale, setLocale } = useI18n()
-
-const availableLocales: LocaleItem[] = [
-  { code: 'en', name: 'English', icon: 'flag:gb-4x3' },
-  { code: 'fr', name: 'Français', icon: 'flag:fr-4x3' },
-  { code: 'de', name: 'Deutsch', icon: 'flag:de-4x3' },
-]
+const { locale, locales } = useI18n()
+const switchLocalePath = useSwitchLocalePath()
 
 const isOpen = ref(false)
-const selectedLocale = ref<LocaleCode>(locale.value as LocaleCode)
 
-// Keep selectedLocale in sync with i18n locale
-watch(locale, (newLocale) => {
-  selectedLocale.value = newLocale as LocaleCode
+const availableLocales = computed(() => {
+  return (locales.value as unknown as LocaleItem[]).map(l => ({
+    ...l,
+    icon: getLocaleIcon(l.code as LocaleCode)
+  }))
 })
 
-const switchLanguage = async (locale: LocaleItem) => {
-  await setLocale(locale.code)
-  isOpen.value = false
-}
+const selectedLocale = computed(() => locale.value as LocaleCode)
 
 const selectedLocaleItem = computed(() => {
-  return availableLocales.find(locale => locale.code === selectedLocale.value)
+  return availableLocales.value.find(l => l.code === selectedLocale.value)
 })
+
+function getLocaleIcon(code: LocaleCode): string {
+  switch (code) {
+    case 'en':
+      return 'flag:gb-4x3'
+    case 'fr':
+      return 'flag:fr-4x3'
+    case 'de':
+      return 'flag:de-4x3'
+    default:
+      return 'flag:gb-4x3'
+  }
+}
+
+const switchLanguage = (locale: LocaleItem) => {
+  const path = switchLocalePath(locale.code)
+  if (path) {
+    navigateTo(path)
+    isOpen.value = false
+  }
+}
 </script>
 
 <template>
   <div class="relative">
-    <button
+    <UButton
+      variant="ghost"
       type="button"
-      class="inline-flex items-center justify-center gap-x-2 rounded-md bg-gray-100 dark:bg-gray-800 px-3 py-2 text-sm font-semibold text-gray-900 dark:text-white shadow-sm ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-200 dark:hover:bg-gray-700"
       :class="[props.mode === 'flag-only' ? 'w-16' : 'w-36']"
       @click="isOpen = !isOpen"
     >
@@ -63,7 +77,7 @@ const selectedLocaleItem = computed(() => {
         class="h-5 w-5 transition-transform duration-200"
         :class="{ 'rotate-180': isOpen }"
       />
-    </button>
+    </UButton>
 
     <div
       v-if="isOpen"

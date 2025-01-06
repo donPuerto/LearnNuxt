@@ -100,31 +100,30 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en',
     langDir: 'locales',
     lazy: true,
-    defaultLocale: 'en',
-    detectBrowserLanguage: false,
     locales: [
       {
         code: 'en',
         iso: 'en-US',
         name: 'English',
-        file: 'en.json',
+        file: 'en.ts',
       },
       {
         code: 'fr',
         iso: 'fr-FR',
         name: 'Français',
-        file: 'fr.json',
+        file: 'fr.ts',
       },
       {
         code: 'de',
         iso: 'de-DE',
         name: 'Deutsch',
-        file: 'de.json',
+        file: 'de.ts',
       },
     ],
-    strategy: 'prefix_except_default',
   },
   icon: {
     customCollections: [{
