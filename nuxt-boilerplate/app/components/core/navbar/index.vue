@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const isDrawerOpen = ref(false)
 const commandPaletteOpen = ref(false)
+const router = useRouter()
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !!isDrawerOpen.value
@@ -25,8 +26,7 @@ const navigation = [
     label: 'Components',
     suffix: '✨ A Collection of Beautiful Nuxt UI Components',
     icon: 'i-lucide-layout-template',
-    to: '/components',
-    onSelect: () => navigateTo('/components'),
+    onSelect: () => navigateTo('/components', { replace: true }),
     kbds: ['meta', 'C'],
     active: true,
   },
@@ -34,16 +34,14 @@ const navigation = [
     label: 'Roadmap',
     suffix: '📋 Roadmap Board: Progress and Plans',
     icon: 'i-carbon:roadmap',
-    to: '/roadmap',
-    onSelect: () => navigateTo('/roadmap'),
+    onSelect: () => navigateTo('/roadmap', { replace: true }),
     kbds: ['meta', 'R'],
   },
   {
     label: 'Releases',
     suffix: '🔥 Release Highlights: New Features & Fixes',
     icon: 'i-catppuccin:release',
-    to: '/releases',
-    onSelect: () => navigateTo('/releases'),
+    onSelect: () => navigateTo('/releases', { replace: true }),
     kbds: ['meta', 'E'],
   },
 ]
