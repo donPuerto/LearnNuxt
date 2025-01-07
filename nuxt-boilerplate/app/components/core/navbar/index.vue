@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const isDrawerOpen = ref(false)
-const commandPaletteRef = ref()
+const commandPaletteOpen = ref(false)
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !!isDrawerOpen.value
@@ -16,27 +16,35 @@ defineShortcuts({
     // Example: Toggle theme picker
   },
   meta_k: () => {
-    commandPaletteRef.value.isOpen = true
+    commandPaletteOpen.value = true
   },
 })
 
 const navigation = [
   {
     label: 'Components',
+    suffix: '✨ A Collection of Beautiful Nuxt UI Components',
     icon: 'i-lucide-layout-template',
     to: '/components',
+    onSelect: () => navigateTo('/components'),
+    kbds: ['meta', 'C'],
     active: true,
   },
   {
     label: 'Roadmap',
+    suffix: '📋 Roadmap Board: Progress and Plans',
     icon: 'i-carbon:roadmap',
     to: '/roadmap',
+    onSelect: () => navigateTo('/roadmap'),
+    kbds: ['meta', 'R'],
   },
   {
     label: 'Releases',
+    suffix: '🔥 Release Highlights: New Features & Fixes',
     icon: 'i-catppuccin:release',
     to: '/releases',
-
+    onSelect: () => navigateTo('/releases'),
+    kbds: ['meta', 'E'],
   },
 ]
 </script>
@@ -67,7 +75,8 @@ const navigation = [
         <div class="flex items-center space-x-2">
           
           <UiThemePicker />
-          <UiCommandPallete ref="commandPaletteRef" />
+          <UiCommandPalette :navigation="navigation" />
+          
           <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
             <UButton
               color="primary"

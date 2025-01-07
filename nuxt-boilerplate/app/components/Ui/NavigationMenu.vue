@@ -1,19 +1,27 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { defineProps, computed, ref } from 'vue'
 
 // Define the NavigationMenuItem type
 type NavigationMenuItem = {
   label: string
   icon?: string
-  to: string
+  to?: string
+  onSelect?: () => void
   active?: boolean
+  suffix?: string
+  kbds?: string[]
 }
 
 const props = defineProps<{
   navigation: NavigationMenuItem[]
 }>()
 
-const items = ref(props.navigation)
+// Transform navigation items to handle both to and onSelect
+const items = computed(() => props.navigation.map(item => ({
+  ...item,
+  to: item.to || '#',
+  click: item.onSelect
+})))
 </script>
 
 <template>
