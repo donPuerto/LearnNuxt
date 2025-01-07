@@ -42,7 +42,7 @@ const sections = {
                 <ul class="space-y-3 text-gray-600 dark:text-gray-400">
                   <li v-for="feature in features" 
                       :key="feature"
-                      class="flex items-start gap-3"
+                      class="flex items-start gap-2"
                   >
                     <span class="text-lg">•</span>
                     <span>{{ t(`releases.features.${section}.${feature}`) }}</span>
@@ -50,24 +50,7 @@ const sections = {
                 </ul>
               </div>
             </div>
-
-            <div class="flex gap-4 pt-4">
-              <UButton
-                color="primary"
-                variant="solid"
-                to="/"
-              >
-                {{ t('common.get_started') }}
-              </UButton>
-
-              <UButton
-                color="primary"
-                variant="outline"
-                to="/documentation"
-              >
-                {{ t('navigation.documentation') }}
-              </UButton>
-            </div>
+           
           </div>
         </UCard>
       </div>
