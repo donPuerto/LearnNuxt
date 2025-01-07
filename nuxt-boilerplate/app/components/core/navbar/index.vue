@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const isDrawerOpen = ref(false)
+const commandPaletteRef = ref()
 
 const toggleDrawer = () => {
   isDrawerOpen.value = !!isDrawerOpen.value
@@ -15,8 +16,7 @@ defineShortcuts({
     // Example: Toggle theme picker
   },
   meta_k: () => {
-    // Define action for CommandPallete shortcut
-    // Example: Open command palette
+    commandPaletteRef.value.isOpen = true
   },
 })
 
@@ -67,7 +67,7 @@ const navigation = [
         <div class="flex items-center space-x-2">
           
           <UiThemePicker />
-          <UiCommandPallete />
+          <UiCommandPallete ref="commandPaletteRef" />
           <UTooltip text="Open on GitHub" :kbds="['meta', 'G']" class="hidden lg:flex">
             <UButton
               color="primary"

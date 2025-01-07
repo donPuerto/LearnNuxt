@@ -290,109 +290,112 @@ const handleStatClick = async () => {
     </div>
 
     <!-- Hero Section -->
-    <div class="relative px-6 isolate lg:px-8">
-      <!-- Gradient Balls -->
-      <div class="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
-        <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
-      </div>
+    <UContainer>
+      <div class="relative isolate">
+        <!-- Gradient Balls -->
+        <div class="absolute inset-x-0 overflow-hidden -top-40 -z-10 transform-gpu blur-3xl sm:-top-80" aria-hidden="true">
+          <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
+        </div>
 
-      <!-- Content -->
-      <div class="max-w-4xl py-8 mx-auto sm:py-12 lg:py-16">
-        <div class="relative max-w-6xl mx-auto text-center">
-          <!-- Hero Content -->
-          <div class="relative z-20">
-            <div class="relative">
-              <h1 class="text-5xl font-bold tracking-tight text-[var(--ui-color-primary-600)] dark:text-[var(--ui-color-primary-400)] sm:text-6xl md:text-7xl lg:text-8xl">
-                <span class="relative block mt-2">
-                  Nuxt Boilerplate
-                </span>
-              </h1>
+        <!-- Content -->
+        <div class="py-8 sm:py-12 lg:py-16">
+          <div class="relative mx-auto text-center">
+            <!-- Hero Content -->
+            <div class="relative z-20">
+              <div class="relative">
+                <h1 class="text-5xl font-bold tracking-tight text-[var(--ui-color-primary-600)] dark:text-[var(--ui-color-primary-400)] sm:text-6xl md:text-7xl lg:text-8xl">
+                  <span class="relative block mt-2">
+                    Nuxt Boilerplate
+                  </span>
+                </h1>
 
-              <p class="max-w-4xl mx-auto mt-2 text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
-                A modern, production-ready template featuring Nuxt 4, Nuxt UI 3, and TailwindCSS.
-                Start your next project with best practices and powerful features out of the box.
-              </p>
+                <p class="max-w-4xl mx-auto mt-2 text-xl leading-8 text-gray-600 dark:text-gray-300 sm:text-2xl">
+                  A modern, production-ready template featuring Nuxt 4, Vue 3, and TypeScript for a robust development experience.
+                  Start your next project with best practices and powerful features out of the box.
+                </p>
 
-              <!-- CTA Buttons -->
-              <div class="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
-                <UButton
-                  to="/components"
-                  color="primary"
-                  variant="solid"
-                  size="xl"
-                  class="w-full sm:w-auto"
-                  trailing-icon="i-lucide-arrow-right"
-                >
-                  Get Started
-                </UButton>
-                <UButton
-                  as="a"
-                  href="https://github.com"
-                  target="_blank"
-                  color="primary"
-                  variant="outline"
-                  size="xl"
-                  class="w-full sm:w-auto"
-                  leading-icon="i-simple-icons-github"
-                  trailing-icon="i-lucide-external-link"
-                >
-                  GitHub
-                </UButton>
-              </div>
+                <!-- CTA Buttons -->
+                <div class="flex flex-col items-center justify-center gap-4 mt-6 sm:flex-row">
+                  <UButton
+                    to="/components"
+                    color="primary"
+                    variant="solid"
+                    size="xl"
+                    class="w-full sm:w-auto"
+                    trailing-icon="i-lucide-arrow-right"
+                  >
+                    Get Started
+                  </UButton>
+                  <UButton
+                    as="a"
+                    href="https://github.com"
+                    target="_blank"
+                    color="primary"
+                    variant="outline"
+                    size="xl"
+                    class="w-full sm:w-auto"
+                    leading-icon="i-simple-icons-github"
+                    trailing-icon="i-lucide-external-link"
+                  >
+                    GitHub
+                  </UButton>
+                </div>
 
-              <!-- Tech Logos -->
-              <div class="mt-8">
-                <h2
-                  class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
-                  @click="handleStatClick"
-                >
-                  Powered by modern technologies
-                </h2>
-                <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
-                  <div
-                    v-for="tech in technologies"
-                    :key="tech.name"
-                    class="flex flex-col items-center cursor-pointer group"
+                <!-- Tech Logos -->
+                <div class="mt-8">
+                  <h2
+                    class="text-base font-semibold tracking-wide text-gray-600 uppercase cursor-pointer dark:text-gray-400"
                     @click="handleStatClick"
                   >
-                    <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
-                      <UIcon
-                        :name="tech.icon"
-                        class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
+                    Powered by modern technologies
+                  </h2>
+                  <div class="flex flex-wrap items-center justify-center gap-6 mt-6">
+                    <div
+                      v-for="tech in technologies"
+                      :key="tech.name"
+                      class="flex flex-col items-center cursor-pointer group"
+                      @click="handleStatClick"
+                    >
+                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+                        <UIcon
+                          :name="tech.icon"
+                          class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
+                          :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
+                        />
+                      </div>
+                      <span
+                        class="mt-3 text-base font-medium"
                         :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                      />
+                      >
+                        {{ tech.name }}
+                      </span>
+                      <span
+                        v-if="tech.version"
+                        class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
+                      >
+                        v{{ tech.version }}
+                      </span>
                     </div>
-                    <span
-                      class="mt-3 text-base font-medium"
-                      :class="`text-${tech.color}-600 dark:text-${tech.color}-400`"
-                    >
-                      {{ tech.name }}
-                    </span>
-                    <span
-                      v-if="tech.version"
-                      class="mt-0.5 text-xs px-2 py-0.5 rounded-[calc(var(--ui-radius)*0.75)] bg-[var(--ui-color-primary-50)] text-[var(--ui-color-primary-700)] transform transition duration-300 ease-out group-hover:scale-105 dark:bg-[var(--ui-color-primary-950)] dark:text-[var(--ui-color-primary-300)]"
-                    >
-                      v{{ tech.version }}
-                    </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!-- Bottom Gradient Ball -->
-      <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
-        <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
+        <!-- Bottom Gradient Ball -->
+        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+          <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-300)] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)" />
+        </div>
       </div>
-    </div>
+    </UContainer>
 
     <!-- Tech Stack -->
-    <div class="px-4 mx-auto mt-8 max-w-7xl sm:px-6 lg:px-8">
+    <UContainer>
       <div class="relative isolate overflow-hidden bg-[var(--ui-color-primary-50)] px-6 py-12 shadow-2xl dark:bg-[var(--ui-color-primary-950)] sm:rounded-[var(--ui-radius)] sm:px-16 xl:py-16">
-        <div class="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.100),transparent)] dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.900),transparent)]" />
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(70rem_50rem_at_top,theme(colors.primary.100),transparent)] dark:bg-[radial-gradient(70rem_50rem_at_top,theme(colors.primary.900),transparent)]" />
         <div class="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-[var(--ui-color-primary-50)] dark:bg-[var(--ui-color-primary-950)] shadow-xl shadow-primary-600/10 ring-1 ring-[var(--ui-color-primary-200)] dark:ring-[var(--ui-color-primary-800)] sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center" />
+        <div class="absolute left-1/3 top-0 h-[300px] w-[300px] -translate-x-1/2 animate-pulse rounded-full bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-400)] opacity-20 blur-3xl dark:from-[var(--ui-color-primary-400)] dark:to-[var(--ui-color-primary-300)]" style="animation-duration: 8s" />
         <div class="grid max-w-2xl grid-cols-1 mx-auto gap-x-8 gap-y-12 sm:gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div class="lg:pr-8 lg:pt-4">
             <div class="lg:max-w-lg">
@@ -434,10 +437,14 @@ const handleStatClick = async () => {
           </dl>
         </div>
       </div>
-    </div>
+    </UContainer>
 
     <!-- Stats -->
-    <div class="px-4 pb-16 mx-auto mt-16 max-w-7xl sm:mt-20 sm:px-6 sm:pb-24 lg:mt-24 lg:px-8 lg:pb-32">
+    <UContainer class="relative mt-16 pb-16 sm:pb-24 lg:pb-32">
+      <div class="absolute inset-0 -z-10 overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(80rem_50rem_at_center,theme(colors.primary.100),transparent)] dark:bg-[radial-gradient(80rem_50rem_at_center,theme(colors.primary.900),transparent)] opacity-30" />
+        <div class="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-400)] opacity-20 blur-3xl dark:from-[var(--ui-color-primary-400)] dark:to-[var(--ui-color-primary-300)]" style="animation-duration: 7s" />
+      </div>
       <div class="max-w-2xl mx-auto lg:mx-0">
         <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           Built for Performance
@@ -461,6 +468,6 @@ const handleStatClick = async () => {
           <div class="absolute bottom-0 left-0 w-full h-1 transition-opacity duration-200 opacity-0 bg-gradient-to-r from-primary-600 to-purple-600 group-hover:opacity-100" />
         </div>
       </dl>
-    </div>
+    </UContainer>
   </main>
 </template>
