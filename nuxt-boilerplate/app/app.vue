@@ -8,6 +8,10 @@ const config = useRuntimeConfig()
 // Use SEO settings from app.config.ts
 useHead({
   title: appConfig.seo.title,
+  link: [
+    { rel: 'manifest', href: '/manifest.json' },
+    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+  ],
   meta: [
     { name: 'description', content: appConfig.seo.description },
     { name: 'keywords', content: appConfig.seo.keywords },

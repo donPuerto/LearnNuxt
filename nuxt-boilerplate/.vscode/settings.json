@@ -39,6 +39,9 @@
     "*.vue": "vue"
   },
   "cSpell.words": [
-    "unhead"
+    "unhead",
+    "lucide",
+    "Vite",
+    "vitejs"
   ]
 }

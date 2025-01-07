@@ -26,6 +26,12 @@ export default defineNuxtConfig({
       'vaul-drawer-wrapper': '',
       'class': 'bg-[var(--ui-bg)]',
     },
+    head: {
+      link: [
+        { rel: 'manifest', href: '/manifest.json' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    }
   },
   css: ['~/assets/css/main.css'],
   site: {
@@ -124,6 +130,7 @@ export default defineNuxtConfig({
         file: 'de.ts',
       },
     ],
+    
   },
   icon: {
     customCollections: [{

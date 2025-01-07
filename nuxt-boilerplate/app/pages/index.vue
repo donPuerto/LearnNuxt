@@ -356,7 +356,7 @@ const handleStatClick = async () => {
                       class="flex flex-col items-center cursor-pointer group"
                       @click="handleStatClick"
                     >
-                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+                      <div class="flex size-24 sm:size-28 transform items-center justify-center rounded-[var(--ui-radius)] bg-[var(--ui-color-primary)] p-5 sm:p-6 shadow-lg ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:scale-110 group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
                         <UIcon
                           :name="tech.icon"
                           class="transition duration-300 ease-out transform size-14 sm:size-16 group-hover:rotate-3"
@@ -411,7 +411,7 @@ const handleStatClick = async () => {
             </div>
           </div>
           <dl class="grid grid-cols-1 col-span-2 text-base leading-7 text-gray-600 gap-x-6 gap-y-8 dark:text-gray-300 sm:grid-cols-2 lg:gap-y-12">
-            <div v-for="feature in features" :key="feature.name" class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl group-hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
+            <div v-for="feature in features" :key="feature.name" class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition duration-300 ease-out group-hover:bg-[var(--ui-color-primary-100)] group-hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:group-hover:bg-[var(--ui-color-primary-900)]">
               <dt class="font-semibold text-gray-900 dark:text-white">
                 <div class="absolute flex items-center justify-center -left-3 top-5 size-7 rounded-xl bg-primary-100/50 dark:bg-primary-500/10">
                   <UIcon
@@ -440,8 +440,8 @@ const handleStatClick = async () => {
     </UContainer>
 
     <!-- Stats -->
-    <UContainer class="relative mt-16 pb-16 sm:pb-24 lg:pb-32">
-      <div class="absolute inset-0 -z-10 overflow-hidden">
+    <UContainer class="relative pb-16 mt-16 sm:pb-24 lg:pb-32">
+      <div class="absolute inset-0 overflow-hidden -z-10">
         <div class="absolute inset-0 bg-[radial-gradient(80rem_50rem_at_center,theme(colors.primary.100),transparent)] dark:bg-[radial-gradient(80rem_50rem_at_center,theme(colors.primary.900),transparent)] opacity-30" />
         <div class="absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 animate-pulse rounded-full bg-gradient-to-tr from-[var(--ui-color-primary-500)] to-[var(--ui-color-primary-400)] opacity-20 blur-3xl dark:from-[var(--ui-color-primary-400)] dark:to-[var(--ui-color-primary-300)]" style="animation-duration: 7s" />
       </div>
@@ -457,7 +457,7 @@ const handleStatClick = async () => {
         <div
           v-for="stat in stats"
           :key="stat.name"
-          class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition-all duration-300 ease-out hover:bg-[var(--ui-color-primary-100)] hover:shadow-xl hover:shadow-[var(--ui-color-primary-900)]/20 dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:hover:bg-[var(--ui-color-primary-900)]"
+          class="group relative rounded-[var(--ui-radius)] bg-[var(--ui-color-primary-50)] p-6 ring-1 ring-[var(--ui-color-primary-200)] transition-all duration-300 ease-out hover:bg-[var(--ui-color-primary-100)] hover:shadow-xl dark:bg-[var(--ui-color-primary-950)] dark:ring-[var(--ui-color-primary-800)] dark:hover:bg-[var(--ui-color-primary-900)]"
         >
           <dt class="text-sm font-semibold leading-6 text-gray-600 dark:text-gray-300">
             {{ stat.name }}
