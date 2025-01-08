@@ -44,10 +44,10 @@ export default defineI18nLocale(() => ({
       },
       seo: {
         title: 'SEO & Performance',
-        i18n: '@nuxtjs/i18n v9.0.0-rc.2 für Lokalisierung',
-        sitemap: '@nuxtjs/sitemap v7.0.1 für bessere Indexierung',
-        schema: 'nuxt-schema-org v4.0.4 für Rich Snippets',
-        robots: '@nuxtjs/robots v5.1.0 für Crawler-Steuerung'
+        i18n: 'Nuxt i18n v9.0.0-rc.2 für Lokalisierung',
+        sitemap: 'Nuxt Sitemap v7.0.1 für bessere Indexierung',
+        schema: 'Nuxt Schema Org v4.0.4 für Rich Snippets',
+        robots: 'Nuxt Robots v5.1.0 für Crawler-Steuerung'
       },
       dev: {
         title: 'Entwicklererfahrung',

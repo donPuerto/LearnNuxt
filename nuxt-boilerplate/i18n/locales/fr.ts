@@ -44,10 +44,10 @@ export default defineI18nLocale(() => ({
       },
       seo: {
         title: 'SEO & Performance',
-        i18n: '@nuxtjs/i18n v9.0.0-rc.2 pour la localisation',
-        sitemap: '@nuxtjs/sitemap v7.0.1 pour un meilleur référencement',
-        schema: 'nuxt-schema-org v4.0.4 pour les rich snippets',
-        robots: '@nuxtjs/robots v5.1.0 pour le contrôle des crawlers'
+        i18n: 'Nuxt i18n v9.0.0-rc.2 pour la localisation',
+        sitemap: 'Nuxt Sitemap v7.0.1 pour un meilleur référencement',
+        schema: 'Nuxt Schema v4.0.4 pour les rich snippets',
+        robots: 'Nuxt Robots v5.1.0 pour le contrôle des crawlers'
       },
       dev: {
         title: 'Expérience développeur',
@@ -77,10 +77,10 @@ export default defineI18nLocale(() => ({
       },
       seo: {
         title: 'SEO & Performance',
-        i18n: '@nuxtjs/i18n v9.0.0-rc.2 pour la localisation',
-        sitemap: '@nuxtjs/sitemap v7.0.1 pour un meilleur référencement',
-        schema: 'nuxt-schema-org v4.0.4 pour les rich snippets',
-        robots: '@nuxtjs/robots v5.1.0 pour le contrôle des crawlers'
+        i18n: 'Nuxt i18n v9.0.0-rc.2 pour la localisation',
+        sitemap: 'Nuxt Sitemap v7.0.1 pour un meilleur référencement',
+        schema: 'Nuxt Schema v4.0.4 pour les rich snippets',
+        robots: 'Nuxt Robots v5.1.0 pour le contrôle des crawlers'
       },
       dev: {
         title: 'Expérience développeur',

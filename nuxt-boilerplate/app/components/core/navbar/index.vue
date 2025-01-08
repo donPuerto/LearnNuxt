@@ -58,7 +58,7 @@ const navigation = [
               name="i-custom-logo"
               class="w-auto size-10 text-[var(--ui-color-primary)] dark:text-[var(--ui-color-primary-400)]"
             />
-            <span class="hidden lg:block text-lg font-bold tracking-tight text-gray-900 dark:text-white">
+            <span class="hidden text-lg font-bold tracking-tight text-gray-900 lg:block dark:text-white">
               Nuxt <span class="text-[var(--ui-primary)]">Boilerplate</span>
             </span>
           </NuxtLink>
@@ -95,6 +95,7 @@ const navigation = [
             description="Navigation menu for mobile devices"
           >
             <UButton
+              size="xl"
               :icon="isDrawerOpen ? 'i-lucide-x' : 'i-lucide-menu'"
               color="primary"
               variant="ghost"

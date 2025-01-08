@@ -46,19 +46,27 @@ defineShortcuts({
 </script>
 
 <template>
-  <UModal v-model:open="open">
+  <UModal v-model:open="open" :title="'Command Palette'" :description="'Search commands and navigation'">
     <UButton
+      size="xl"
       color="primary"
       variant="ghost"
-      icon="i-lucide-search"
+      icon="i-heroicons-magnifying-glass-20-solid"
       @click="open = true"
     />
 
     <template #content>
+      <!-- Dialog Title -->
+      <h2 class="sr-only" id="command-palette-title">Command Palette</h2>
+      <!-- Dialog Description -->
+      <p class="sr-only" id="command-palette-description">
+        Search commands and navigation
+      </p>
       <UCommandPalette
         :groups="[{ id: 'navigation', label: 'Navigation', items: navigationItems }]"
         @update:open="open = $event"
         @select="onSelect"
+       
       />
     </template>
   </UModal>
