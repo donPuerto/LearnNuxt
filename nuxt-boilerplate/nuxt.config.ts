@@ -6,6 +6,12 @@ import pkg from './package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
+  app: {
+    rootAttrs: {
+      'vaul-drawer-wrapper': '',
+      'class': 'bg-[var(--ui-bg)]',
+    }
+  },
   vue: {
     propsDestructure: true,
   },
@@ -21,18 +27,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   devtools: { enabled: true },
-  app: {
-    rootAttrs: {
-      'vaul-drawer-wrapper': '',
-      'class': 'bg-[var(--ui-bg)]',
-    },
-    head: {
-      link: [
-        { rel: 'manifest', href: '/manifest.json' },
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
-    }
-  },
+ 
   css: ['~/assets/css/main.css'],
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',

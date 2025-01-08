@@ -11,117 +11,21 @@ const appConfig = useAppConfig()
 const config = useRuntimeConfig().public
 const baseUrl = config.baseUrl
 
-// Dynamic SEO meta tags
-const title = ref(appConfig.seo.title)
-const description = ref(appConfig.seo.description)
-const image = ref(`${baseUrl}${appConfig.seo.image}`)
+// Head configuration
+useHead({
+  title: 'Home',
+  meta: [
+    { name: 'description', content: 'Welcome to our homepage. Discover our latest features and updates.' }
+  ]
+})
 
-// Social media specific meta
-const ogTitle = ref(appConfig.seo.openGraph.title)
-const ogDescription = ref(appConfig.seo.openGraph.description)
-const ogImageAlt = ref(appConfig.seo.openGraph.imageAlt)
-const ogType = ref<'website'>('website')
-const ogSiteName = ref(appConfig.seo.openGraph.siteName)
-
-// Twitter meta
-const twitterTitle = ref(appConfig.seo.twitter.title)
-const twitterDescription = ref(appConfig.seo.twitter.description)
-const twitterCard = ref<'summary_large_image'>(appConfig.seo.twitter.card)
-
-// Additional metadata
-const author = ref(appConfig.seo.author)
-const keywords = ref(appConfig.seo.keywords)
-const viewport = ref(appConfig.seo.viewport)
-const robots = ref(appConfig.seo.robots)
-
-// Schema.org structured data
+// Structured data for SEO
 const structuredData = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
-  'name': () => ogSiteName.value,
-  'description': () => description.value,
-  'url': baseUrl,
+  name: 'My Website',
+  url: baseUrl
 }
-
-// Head configuration
-useHead({
-  // Basic document title and meta
-  title: () => title.value,
-  titleTemplate: title => `${title} - ${ogSiteName.value}`,
-
-  // Meta tags
-  meta: [
-    // Basic SEO
-    { name: 'description', content: () => description.value },
-    { name: 'keywords', content: () => keywords.value },
-    { name: 'author', content: () => author.value },
-    { name: 'robots', content: () => robots.value },
-    { name: 'viewport', content: () => viewport.value },
-
-    // OpenGraph
-    { property: 'og:title', content: () => ogTitle.value },
-    { property: 'og:description', content: () => ogDescription.value },
-    { property: 'og:image', content: () => image.value },
-    { property: 'og:image:alt', content: () => ogImageAlt.value },
-    { property: 'og:url', content: baseUrl },
-    { property: 'og:type', content: () => ogType.value },
-    { property: 'og:site_name', content: () => ogSiteName.value },
-
-    // Twitter
-    { name: 'twitter:card', content: () => twitterCard.value },
-    { name: 'twitter:title', content: () => twitterTitle.value },
-    { name: 'twitter:description', content: () => twitterDescription.value },
-    { name: 'twitter:image', content: () => image.value },
-  ],
-
-  // Link tags
-  link: [
-    { rel: 'canonical', href: baseUrl },
-    { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-    { rel: 'manifest', href: '/site.webmanifest' },
-    { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
-  ],
-
-  // HTML Attributes
-  htmlAttrs: {
-    lang: 'en',
-    dir: 'ltr',
-  },
-
-  // Body Attributes
-  bodyAttrs: {
-    class: 'antialiased',
-  },
-
-  // Scripts
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify(structuredData),
-    },
-  ],
-})
-
-// SEO meta configuration
-useSeoMeta({
-  title: () => title.value,
-  description: () => description.value,
-  ogTitle: () => ogTitle.value,
-  ogDescription: () => ogDescription.value,
-  ogImage: () => image.value,
-  ogImageAlt: () => ogImageAlt.value,
-  ogUrl: baseUrl,
-  ogType: () => ogType.value,
-  ogSiteName: () => ogSiteName.value,
-  twitterCard: () => twitterCard.value,
-  twitterTitle: () => twitterTitle.value,
-  twitterDescription: () => twitterDescription.value,
-  twitterImage: () => image.value,
-  author: () => author.value,
-  keywords: () => keywords.value,
-  viewport: () => viewport.value,
-  robots: () => robots.value,
-})
 
 // Computed
 const neutral = computed(() => appConfig.ui.colors.neutral)

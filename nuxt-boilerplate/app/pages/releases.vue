@@ -1,6 +1,13 @@
 <script setup lang="ts">
 const { t } = useI18n()
 
+useHead({
+  title: 'Releases',
+  meta: [
+    { name: 'description', content: 'Check out our latest releases and updates. Stay up to date with new features and improvements.' }
+  ]
+})
+
 const sections = {
   ui: ['nuxt_ui', 'tailwind', 'icons'],
   core: ['nuxt', 'vue', 'typescript'],
