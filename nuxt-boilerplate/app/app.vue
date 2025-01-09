@@ -3,10 +3,12 @@ import * as locales from '@nuxt/ui/locale'
 
 const { locale } = useI18n()
 const appConfig = useAppConfig()
+
+const currentLocale = computed(() => locales[locale.value as keyof typeof locales])
 </script>
 
 <template>
-  <UApp :toaster="appConfig.toaster" :locale="locales[locale]">
+  <UApp :toaster="appConfig.toaster" :locale="currentLocale">
     <NuxtLoadingIndicator color="#FFF" />
     <div class="bg-[var(--ui-bg)]" vaul-drawer-wrapper>
       <NuxtLayout>

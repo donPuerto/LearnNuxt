@@ -461,9 +461,9 @@ const _vVzhVmGl8K = (function(nitro) {
 
 const rootDir = "D:/Code/Nuxt/v4/LearnNuxt/nuxt-boilerplate";
 
-const appRootAttrs = {"id":"__nuxt","vaul-drawer-wrapper":"","class":"bg-[var(--ui-bg)] isolate"};
+const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[{"rel":"stylesheet","href":"~/assets/css/main.css"}],"style":[],"script":[],"noscript":[]};
 
-const appHead = {"meta":[{"name":"viewport","content":"width=device-width, initial-scale=1"},{"charset":"utf-8"}],"link":[],"style":[],"script":[],"noscript":[]};
+const appRootAttrs = {"id":"__nuxt","vaul-drawer-wrapper":"","class":"bg-[var(--ui-bg)] isolate"};
 
 const appRootTag = "div";
 
@@ -1227,6 +1227,40 @@ const _inlineRuntimeConfig = {
     "debug": false,
     "credits": true,
     "groups": [
+      {
+        "comment": [],
+        "disallow": [],
+        "allow": [
+          "/"
+        ],
+        "userAgent": [
+          "*"
+        ],
+        "_indexable": true,
+        "_rules": [
+          {
+            "pattern": "/",
+            "allow": true
+          }
+        ]
+      },
+      {
+        "comment": [],
+        "disallow": [],
+        "allow": [
+          "/"
+        ],
+        "userAgent": [
+          "*"
+        ],
+        "_indexable": true,
+        "_rules": [
+          {
+            "pattern": "/",
+            "allow": true
+          }
+        ]
+      },
       {
         "comment": [],
         "disallow": [],

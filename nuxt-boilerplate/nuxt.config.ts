@@ -5,6 +5,7 @@ import pkg from './package.json'
 
 const { resolve } = createResolver(import.meta.url)
 
+// Define config with proper type
 export default defineNuxtConfig({
   modules: [
     '@nuxt/ui',
@@ -19,12 +20,16 @@ export default defineNuxtConfig({
   ],
   devtools: { enabled: true },
   app: {
+    head: {
+      link: [
+        { rel: 'stylesheet', href: '~/assets/css/main.css' }
+      ]
+    },
     rootAttrs: {
       'vaul-drawer-wrapper': '',
       'class': 'bg-[var(--ui-bg)]',
     },
   },
-  css: ['~/assets/css/main.css'],
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     name: 'Nuxt Boilerplate',
@@ -78,7 +83,7 @@ export default defineNuxtConfig({
   //     omitLineBreaks: false
   //   }
   // }
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-01-09',
   vite: {
     plugins: [
       tailwindcss(),
