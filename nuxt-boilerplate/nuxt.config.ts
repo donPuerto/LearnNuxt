@@ -2,22 +2,12 @@
 import tailwindcss from '@tailwindcss/vite'
 import { createResolver } from '@nuxt/kit'
 import pkg from './package.json'
+import { defineNuxtConfig } from 'nuxt/config'
 
 const { resolve } = createResolver(import.meta.url)
 
 // Define config with proper type
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/ui',
-    '@nuxt/devtools',
-    '@nuxt/eslint',
-    '@nuxt/icon',
-    '@nuxt/fonts',
-    '@nuxtjs/robots',
-    '@nuxtjs/sitemap',
-    'nuxt-schema-org',
-    '@nuxtjs/i18n',
-  ],
   devtools: { enabled: true },
   app: {
     head: {
@@ -29,14 +19,28 @@ export default defineNuxtConfig({
       'vaul-drawer-wrapper': '',
       'class': 'bg-[var(--ui-bg)]',
     },
+    // description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',
+    // defaultLocale: 'en',
   },
+  modules: [
+    '@nuxt/ui',
+    '@nuxt/devtools',
+    '@nuxt/eslint',
+    '@nuxt/icon',
+    '@nuxt/fonts',
+    '@nuxtjs/robots',
+    '@nuxtjs/sitemap',
+    'nuxt-schema-org',
+    '@nuxtjs/i18n',
+  ],
+  css: [
+    '~/app/assets/css/main.css',
+  ],
+  
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     name: 'Nuxt Boilerplate',
-    description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',
-    defaultLocale: 'en',
   },
-
   runtimeConfig: {
     public: {
       version: pkg.version,
@@ -49,17 +53,17 @@ export default defineNuxtConfig({
       devDependencies: {
         typescript: pkg.devDependencies.typescript,
       },
-    },
+    }
   },
   future: {
     compatibilityVersion: 4,
   },
 
   // To re-enable _all_ Nuxt v3 behavior, set the following options:
-  // srcDir: ".",
-  //  dir: {
-  //   app: "app",
-  // },
+  srcDir: ".",
+   dir: {
+    app: "app",
+  },
   // experimental: {
   //   scanPageMeta: 'after-resolve',
   //   sharedPrerenderData: false,
@@ -100,23 +104,29 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  // i18n: {
-  //   strategy: 'prefix_except_default',
-  //   defaultLocale: 'en',
-  //   locales: [
-  //     {
-  //       code: 'en',
-  //       name: 'English',
-  //       file: 'en.json',
-  //     },
-  //     {
-  //       code: 'es',
-  //       name: 'Español',
-  //       file: 'es.json',
-  //     },
-  //   ],
-  //   lazy: true,
-  // },
+  i18n: {
+    strategy: 'prefix_except_default',
+    defaultLocale: 'en-US',
+    locales: [
+      {
+        code: 'en-US',
+        name: 'English',
+        file: 'en.ts',
+      },
+      {
+        code: 'de-DE',
+        name: 'Deutsch',
+        file: 'de.ts',
+      },
+      {
+        code: 'fr-FR',
+        name: 'Français',
+        file: 'fr.ts',
+      },
+    ],
+    //langDir: 'i18n',
+    lazy: true,
+  },
   icon: {
     customCollections: [{
       prefix: 'custom',

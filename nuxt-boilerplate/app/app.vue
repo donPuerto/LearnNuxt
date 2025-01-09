@@ -8,7 +8,7 @@ const currentLocale = computed(() => locales[locale.value as keyof typeof locale
 </script>
 
 <template>
-  <UApp :toaster="appConfig.toaster" :locale="currentLocale">
+  <UApp  :locale="currentLocale">
     <NuxtLoadingIndicator color="#FFF" />
     <div class="bg-[var(--ui-bg)]" vaul-drawer-wrapper>
       <NuxtLayout>
