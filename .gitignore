@@ -1,1 +1,23 @@
-nuxt-boilerplate/
+# Ignore environment files
+.env
+.env.*
+
+# Ignore global temporary files
+.DS_Store
+Thumbs.db
+
+# Ignore build outputs from other directories (if applicable)
+dist/
+output/
+
+# Ignore log files
+*.log
+
+# Ignore IDE config (optional, adjust based on your editor)
+.vscode/
+.idea/
+
+# Do NOT ignore nuxt-boilerplate (we track it)
+# Explicitly allow nuxt-boilerplate in case it was ignored earlier
+!nuxt-boilerplate/
+
