@@ -4,10 +4,13 @@
 .nuxt
 .nitro
 .cache
-dist
 
 # Node dependencies
 node_modules
+
+# pnpm specific
+.pnpm-store/
+pnpm-lock.yaml
 
 # Logs
 logs
