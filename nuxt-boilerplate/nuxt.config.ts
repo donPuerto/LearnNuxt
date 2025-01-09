@@ -6,15 +6,6 @@ import pkg from './package.json'
 const { resolve } = createResolver(import.meta.url)
 
 export default defineNuxtConfig({
-  app: {
-    rootAttrs: {
-      'vaul-drawer-wrapper': '',
-      'class': 'bg-[var(--ui-bg)]',
-    }
-  },
-  vue: {
-    propsDestructure: true,
-  },
   modules: [
     '@nuxt/ui',
     '@nuxt/devtools',
@@ -27,7 +18,12 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
   ],
   devtools: { enabled: true },
- 
+  app: {
+    rootAttrs: {
+      'vaul-drawer-wrapper': '',
+      'class': 'bg-[var(--ui-bg)]',
+    },
+  },
   css: ['~/assets/css/main.css'],
   site: {
     url: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
@@ -35,8 +31,7 @@ export default defineNuxtConfig({
     description: 'A modern Nuxt 3 boilerplate with comprehensive SEO setup',
     defaultLocale: 'en',
   },
-  ui: {
-  },
+
   runtimeConfig: {
     public: {
       version: pkg.version,
@@ -100,33 +95,23 @@ export default defineNuxtConfig({
       stylistic: true,
     },
   },
-  i18n: {
-    strategy: 'prefix_except_default',
-    defaultLocale: 'en',
-    langDir: 'locales',
-    lazy: true,
-    locales: [
-      {
-        code: 'en',
-        iso: 'en-US',
-        name: 'English',
-        file: 'en.ts',
-      },
-      {
-        code: 'fr',
-        iso: 'fr-FR',
-        name: 'Français',
-        file: 'fr.ts',
-      },
-      {
-        code: 'de',
-        iso: 'de-DE',
-        name: 'Deutsch',
-        file: 'de.ts',
-      },
-    ],
-    
-  },
+  // i18n: {
+  //   strategy: 'prefix_except_default',
+  //   defaultLocale: 'en',
+  //   locales: [
+  //     {
+  //       code: 'en',
+  //       name: 'English',
+  //       file: 'en.json',
+  //     },
+  //     {
+  //       code: 'es',
+  //       name: 'Español',
+  //       file: 'es.json',
+  //     },
+  //   ],
+  //   lazy: true,
+  // },
   icon: {
     customCollections: [{
       prefix: 'custom',

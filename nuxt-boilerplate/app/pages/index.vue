@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, onMounted } from 'vue'
 import type JSConfetti from 'js-confetti'
-import { useAppConfig, useHead, useSeoMeta } from '#imports'
+import { useAppConfig, useHead, useSeoMeta, useI18n } from '#imports'
 
 // Initialize
 let jsConfetti: JSConfetti | null = null
@@ -9,15 +9,23 @@ let jsConfetti: JSConfetti | null = null
 // Config
 const appConfig = useAppConfig()
 const config = useRuntimeConfig().public
-const baseUrl = config.baseUrl
+const baseUrl =  config.site.url
+
+// I18n
+const { t } = useI18n()
 
 // Head configuration
-useHead({
-  title: 'Home',
+const title = ref('Home')
+const description = ref('Welcome to our modern Nuxt.js starter template. Get started with TypeScript, Tailwind CSS, and more.')
+
+useHead(() => ({
+  title: title.value,
   meta: [
-    { name: 'description', content: 'Welcome to our homepage. Discover our latest features and updates.' }
+    { name: 'description', content: description.value },
+    { property: 'og:title', content: title.value },
+    { property: 'og:description', content: description.value }
   ]
-})
+}))
 
 // Structured data for SEO
 const structuredData = {

@@ -1,12 +1,19 @@
 <script setup lang="ts">
+// I18n
 const { t } = useI18n()
 
-useHead({
-  title: 'Releases',
+// Head configuration
+const title = ref('Releases')
+const description = ref('Stay up to date with our latest releases. Explore new features, improvements, and bug fixes.')
+
+useHead(() => ({
+  title: title.value,
   meta: [
-    { name: 'description', content: 'Check out our latest releases and updates. Stay up to date with new features and improvements.' }
+    { name: 'description', content: description.value },
+    { property: 'og:title', content: title.value },
+    { property: 'og:description', content: description.value }
   ]
-})
+}))
 
 const sections = {
   ui: ['nuxt_ui', 'tailwind', 'icons'],
